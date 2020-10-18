@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-success">{{ button_label|default('Enregsitrer') }}</button> 
+    <a class="btn btn-primary" href="{{ path('articles_index') }}">Retour à la liste des articles</a>
+{{ form_end(form) }}

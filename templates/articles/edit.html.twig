@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Editer l'article {{ article.titre }}{% endblock %}
+
+{% block body %}
+    <h2>Editer l'article : {{ article.titre }}</h2>
+
+    {{ include('articles/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+
+{% endblock %}

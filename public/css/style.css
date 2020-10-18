@@ -1,0 +1,40 @@
+/*.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}*/
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 170px;
+    /* Margin bottom by footer height */
+}
+
+footer {
+    position: absolute;
+    padding-top: 10px;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    line-height: 35px;
+    color: white;
+}
+
+footer p {
+    color: #7b8a8b;
+    font-size: 13px;
+    margin-bottom: -1.3rem;
+}
+
+footer #footer-resources i {
+    color: white;
+    font-size: 28.5px;
+}

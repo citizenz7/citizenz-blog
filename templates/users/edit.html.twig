@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Edition du profil{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-sm-9 mt-3 pr-5 text-justify">
+        <div class="row mb-4 pb-3">
+            <div class="col-sm-12">
+                <h2 class="pb-3">Edition du profil de : {{ user.username }}</h2>
+                {{ include('users/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+            </div>
+        </div>
+    </div>
+    {% include('home/sidebar.html.twig') %}
+</div>
+
+{% endblock %}

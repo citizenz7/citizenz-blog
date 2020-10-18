@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}citizenz.info : blog Geek & Libre{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-sm-9 mt-3">
+        {% for article in articles %}
+        <article class="pr-4 mb-4 pb-3 border-bottom">
+            <h4 class="text-danger">{{ article.categorie.titre }}</h4>
+            <h1 class="font-weight-bold">{{ article.titre }}</h1>
+            <div class="text-muted bg-light pl-2 py-1">
+                Posté le {{ article.createdAt | date("d/m/Y") }} à
+                {{ article.createdAt | date("H:i") }} par {{ article.auteur.username }}
+            </div>
+            <div class="text-justify mt-2">
+                <img src="{{ article.image }}" alt="{{ article.titre }}" style="max-width: 150px;"
+                    class="float-left mr-3 my-1 img-fluid">
+                <p>{{ article.contenu | nl2br | slice(0,400) | raw }}...</p>
+                <a href="{{ path('articles_show', { 'id': article.id }) }}" class="btn btn-primary">Lire la suite</a>
+            </div>
+        </article>
+        {% endfor %}
+
+        <div class="pagination justify-content-center px-2">
+            {{ knp_pagination_render(articles) }}
+        </div>
+    </div>
+
+    {% include('home/sidebar.html.twig') %}
+
+</div>
+
+{% endblock %}

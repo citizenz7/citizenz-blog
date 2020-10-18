@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page de profil de : {{ user.username }}{% endblock %}
+
+{% block body %}
+
+{% if app.user.id == user.id %}
+<div class="row">
+    <div class="col-sm-9 mt-3 pr-5 text-justify">
+        <div class="row mb-4 pb-3">
+            <div class="col-sm-10">
+                <h2 class="pb-3">Page de profil de : {{ user.username }}</h2>
+                <p>
+                    Votre rôle: {#{ user.roles ? user.roles|json_encode : '' }#}
+                    {% if user.roles|json_encode == '["ROLE_ADMIN","ROLE_USER"]' %}
+                    <span class="text-danger">Administrateur</span>
+                    {% else %}
+                    <span class="text-warning">Utilisateur</span>
+                    {% endif %}
+                </p>
+                <p>
+                    Votre adresse e-mail : {{ user.email }}
+                </p>
+                <p>
+                    Votre mot de passe : <a href="#">demander un nouveau mot de passe</a>
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="{{ path('users_edit', {'id': user.id}) }}">Editer votre
+                        profil</a>
+                </p>
+            </div>
+            <div class="col-sm-2">
+                <img src="{{ user.avatar }}" class="img-fluid mt-2" style="max-width: 100px;">
+            </div>
+
+
+        </div>
+    </div>
+
+    {% include('home/sidebar.html.twig') %}
+</div>
+
+{% else %}
+
+<div class="mt-4 pt-4 pb-2 px-3 alert alert-danger text-center">
+    <p>
+        <i class="fas fa-user-lock fa-5x"></i>
+    </p>
+    <p>
+        Vous ne pouvez pas accéder à cette page !
+    </p>
+    <p>
+        <a class="btn btn-primary btn-lg" href="{{ path('home') }}">Retourner à l'accueil</a>
+    </p>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

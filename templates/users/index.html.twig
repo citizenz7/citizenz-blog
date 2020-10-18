@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users index{% endblock %}
+
+{% block body %}
+    <h1>Users index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Rôle</th>
+                <th>Email</th>
+                <th>Avatar</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{#{ user.roles ? user.roles|json_encode : '' }#}
+                    {% if user.roles|json_encode == '["ROLE_USER"]' %}
+                        Utilisateur
+                    {% else %}
+                        Administrateur
+                    {% endif %}
+                </td>
+                <td>{{ user.email }}</td>
+                <td>
+                    {% if user.avatar != null %}
+                        <img src="{{ user.avatar }}" alt="{{ user.username }}" class="img-fluid" style="max-width: 40px;">
+                    {% else %}
+                        <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" alt="{{ user.username }}" class="img-fluid" style="max-width: 40px;">
+                    {% endif %}
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-primary" href="{{ path('users_show', {'id': user.id}) }}">Voir</a>
+                    <a class="btn btn-sm btn-warning" href="{{ path('users_edit', {'id': user.id}) }}">Edit.</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme commentForm 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-9 mt-3 pr-5 text-justify">
+        <article class="mb-4 pb-3">
+            <h2 class="text-danger font-weight-bold">{{ article.categorie.titre }}</h2>
+            <h1 class="display-4 font-weight-bold">{{ article.titre }}</h1>
+            <div class="text-muted bg-light pl-2 py-1">
+                Posté le {{ article.createdAt | date("d/m/Y") }} à {{ article.createdAt | date("H:i") }},
+                par {{ article.auteur.username }} <span class="badge badge-primary rounded">298 lectures</span>
+            </div>
+            <div class="mt-2">
+                <img src="{{ article.image }}" alt="{{ article.titre }}" class="float-left mr-3 my-1 img-fluid"
+                    style="max-width:350px;">
+                <p>{{ article.contenu | raw | nl2br}}</p>
+            </div>
+            <div class="mt-4 py-2 border-top border-bottom lead">
+                Tags :
+                <span class="badge badge-secondary rounded py-1 px-2 mx-1"><a href="#"
+                        class="text-white text-decoration-none">Debian</a></span>
+                <span class="badge badge-secondary rounded py-1 px-2 mx-1"><a href="#"
+                        class="text-white text-decoration-none">Nginx</a></span>
+                <span class="badge badge-secondary rounded py-1 px-2 mx-1"><a href="#"
+                        class="text-white text-decoration-none">Web</a></span>
+            </div>
+        </article>
+
+        <section id="commentaires" class="mt-4">
+            <h4 class="bg-light px-3 py-2 font-weight-bold">Commentaires de l'article <span
+                    class="badge badge-primary rounded">{{ article.commentaires | length }}</span></h4>
+
+            {% if app.user %}
+            <div class="mt-2 mb-4">
+                <p>Vous êtes connecté(e) en tant que : {{ app.user.username }}</p>
+                {{ form_start(commentForm) }}
+                {#{ form_row(commentForm.auteur, {'label': 'Auteur', 'attr': {'placeholder': 'Votre nom'}}) }#}
+                {{ form_row(commentForm.contenu, {'label': 'Texte du commentaire', 'attr': {'placeholder': 'Votre commentaire'}})
+                }}
+                <button type="submit" class="btn btn-success">Envoyer</button> <button type="reset"
+                    class="btn btn-secondary">Annuler</button>
+                {{ form_end(commentForm) }}
+                <hr>
+            </div>
+            {% else %}
+            <div class="mt-2 mb-4">
+                Vous devez être <a href="{{ path('app_login') }}">connecté(e)</a> pour écrire un commentaire.<br>
+                Pas encore de compte ? <a href="{{ path('app_register') }}">Enregistrez-vous</a> gratuitement.
+            </div>
+            {% endif %}
+
+            {% for commentaire in article.commentaires | reverse %}
+            <div class="row my-1 mx-1 border">
+                <div class="col-2 py-2 bg-light text-center">
+                    {% if commentaire.auteur.avatar != null %}
+                        <img class="img-fluid" style="max-width:80px;" src="{{ commentaire.auteur.avatar }}" alt="{{ commentaire.auteur }}">
+                    {% else %}
+                        <img class="img-fluid" src="{{ asset('images/avatar.png') }}" alt="{{ commentaire.auteur }}">
+                    {% endif %}
+                    <small>
+                        {{ commentaire.auteur }}<br>
+                        le {{ commentaire.createdAt | date('d/m/y') }} à {{ commentaire.createdAt | date('H:i') }}
+                    </small>
+                </div>
+                <div class="col py-2">
+                    {{ commentaire.contenu | raw }}
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+
+    </div>
+
+    {% include('home/sidebar.html.twig') %}
+
+</div>
+{% endblock %}
