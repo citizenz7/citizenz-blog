@@ -19,25 +19,24 @@
         </thead>
         <tbody>
         {% for article in articles %}
-            <tr>
+            <tr class="text-justify">
                 <td>{{ article.id }}</td>
                 <td>{{ article.titre }}</td>
-                <td>{{ article.contenu | slice(0,200) }}...</td>
-                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.contenu | slice(0,100) }}...</td>
+                <td style="font-size:12px;">{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td style="font-size:12px;">{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td><img src="{{ article.image }}" alt="{{ article.titre }}" class="img-fluid" style="max-width:100px;"></td>
                 <td>
                     <a class="btn btn-sm btn-primary" href="{{ path('articles_show', {'id': article.id}) }}">Voir</a>
-                    <a class="btn btn-sm btn-warning" href="{{ path('articles_edit', {'id': article.id}) }}">Edit.</a>
+                    <a class="btn btn-sm btn-info" href="{{ path('articles_edit', {'id': article.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">aucun article</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('articles_new') }}">Create new</a>
 {% endblock %}

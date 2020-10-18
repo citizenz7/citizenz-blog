@@ -6,17 +6,20 @@
 
 {% block body %}
 <div class="row">
-    <div class="col-sm-9 mt-3 pr-5 text-justify">
+    <div class="col-sm-8 mt-3 pr-5 text-justify">
         <article class="mb-4 pb-3">
-            <h2 class="text-danger font-weight-bold">{{ article.categorie.titre }}</h2>
-            <h1 class="display-4 font-weight-bold">{{ article.titre }}</h1>
-            <div class="text-muted bg-light pl-2 py-1">
-                Posté le {{ article.createdAt | date("d/m/Y") }} à {{ article.createdAt | date("H:i") }},
-                par {{ article.auteur.username }} <span class="badge badge-primary rounded">298 lectures</span>
+            <h3 class="text-danger font-weight-bold">{{ article.categorie.titre }}</h3>
+            <h1 class="font-weight-bold">{{ article.titre }}</h1>
+            <div class="text-muted bg-light px-2 py-1 text-meta">
+                Posté le {{ article.createdAt | date("d/m/Y") }} à {{ article.createdAt | date("H:i") }}, 
+                {% if article.updatedAt != null %}
+                    mis à jour le {{ article.updatedAt | date("d/m/Y") }} à {{ article.updatedAt | date("H:i") }}, 
+                {% endif %}
+                par {{ article.auteur.username }} <span class="badge badge-primary ml-2">298 lectures</span>
             </div>
             <div class="mt-2">
                 <img src="{{ article.image }}" alt="{{ article.titre }}" class="float-left mr-3 my-1 img-fluid"
-                    style="max-width:350px;">
+                    style="max-width:350px; width:100%;">
                 <p>{{ article.contenu | raw | nl2br}}</p>
             </div>
             <div class="mt-4 py-2 border-top border-bottom lead">
@@ -54,20 +57,20 @@
             {% endif %}
 
             {% for commentaire in article.commentaires | reverse %}
-            <div class="row my-1 mx-1 border">
-                <div class="col-2 py-2 bg-light text-center">
+            <div id="c-{{ commentaire.id }}" class="row my-1 mx-1 border">
+                <div class="col-3 py-2 bg-light text-center">
                     {% if commentaire.auteur.avatar != null %}
-                        <img class="img-fluid" style="max-width:80px;" src="{{ commentaire.auteur.avatar }}" alt="{{ commentaire.auteur }}">
+                        <img class="img-fluid" style="max-width:80px; width:100%;" src="{{ commentaire.auteur.avatar }}" alt="{{ commentaire.auteur }}">
                     {% else %}
                         <img class="img-fluid" src="{{ asset('images/avatar.png') }}" alt="{{ commentaire.auteur }}">
                     {% endif %}
-                    <small>
-                        {{ commentaire.auteur }}<br>
+                    <p class="text-meta">
+                        ({{ commentaire.id }}) {{ commentaire.auteur }}<br>
                         le {{ commentaire.createdAt | date('d/m/y') }} à {{ commentaire.createdAt | date('H:i') }}
-                    </small>
+                    </p>
                 </div>
                 <div class="col py-2">
-                    {{ commentaire.contenu | raw }}
+                    {{ commentaire.contenu | nl2br | raw }}
                 </div>
             </div>
             {% endfor %}
