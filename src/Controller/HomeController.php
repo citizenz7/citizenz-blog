@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Articles;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -25,7 +24,7 @@ class HomeController extends AbstractController
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
             4 // Nombre de résultats par page
         );
-        
+
         return $this->render('home/index.html.twig', [
             'articles' => $articles,
         ]);
