@@ -1,4 +1,5 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn btn-success btn-lg">{{ button_label|default('Mettre à jour') }}</button>
+    <button class="btn btn-success">{{ button_label|default('Mettre à jour') }}</button> 
+    <button type="reset" class="btn btn-secondary">Annuler</button>
 {{ form_end(form) }}
