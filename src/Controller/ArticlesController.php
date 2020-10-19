@@ -42,11 +42,14 @@ class ArticlesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
-            // Default date/time when creating
+            // On set la date de l'article à MAINTENANT
             $article->setCreatedAt(new \DateTime())
 
             // On récupère l'utilisateur connecté
             ->setAuteur($this->getUser());
+
+            // On set le nb de vues à 1 lorsqu'on crée l'article
+            $article->setVues('1');
 
             $entityManager->persist($article);
             $entityManager->flush();
@@ -65,6 +68,14 @@ class ArticlesController extends AbstractController
      */
     public function show(Articles $article, Request $request, EntityManagerInterface $manager): Response
     {
+        $newview = $article->getVues() + 1;
+        $article->setVues($newview);
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $entityManager->persist($article);
+        $entityManager->flush();
+
         $commentaire = new Commentaires();
 
         $form = $this->createForm(CommentaireType::class, $commentaire);

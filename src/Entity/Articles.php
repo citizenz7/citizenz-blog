@@ -61,6 +61,11 @@ class Articles
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $vues;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
@@ -182,6 +187,18 @@ class Articles
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getVues(): ?int
+    {
+        return $this->vues;
+    }
+
+    public function setVues(int $vues): self
+    {
+        $this->vues = $vues;
 
         return $this;
     }

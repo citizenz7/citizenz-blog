@@ -11,9 +11,9 @@ En cours de développement...
 - pagination
 - profil user
 - CKEditor
+- nb de lectures par article
 
 ### A faire
-- nb de lectures par article
 - recherche
 - slug (slugify)
 - formulaire de contact

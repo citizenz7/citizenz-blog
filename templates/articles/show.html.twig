@@ -15,7 +15,7 @@
                 {% if article.updatedAt != null %}
                 mis à jour le {{ article.updatedAt | date("d/m/Y") }} à {{ article.updatedAt | date("H:i") }},
                 {% endif %}
-                par {{ article.auteur.username }} <span class="badge badge-primary ml-2">298 lectures</span>
+                par {{ article.auteur.username }} <span class="badge badge-primary ml-2">Lectures : {{ article.vues }}</span>
             </div>
             <div class="mt-2">
                 <img src="{{ article.image }}" alt="{{ article.titre }}" class="float-left mr-3 my-1 img-fluid"
