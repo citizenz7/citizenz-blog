@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Articles;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -15,15 +16,11 @@ class ArticlesType extends AbstractType
     {
         $builder
             ->add('titre', TextType::class)
-            ->add('contenu', TextareaType::class, [
-                'attr' => [
-                    'rows' => 7
-                ]
-            ])
+            ->add('contenu', CKEditorType::class)
             //->add('created_at')
             //->add('updated_at')
             ->add('categorie')
-            ->add('auteur')
+            //->add('auteur')
             ->add('image')
         ;
     }

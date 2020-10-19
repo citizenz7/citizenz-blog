@@ -20,7 +20,7 @@
         <label for="inputUsername">Pseudo</label>
         <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="Entrez votre pseudo" required autofocus>
         <label for="inputPassword">Mot de passe</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" required>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Entrez votre mot de passe" required>
 
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
     </div>

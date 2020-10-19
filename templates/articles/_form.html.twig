@@ -1,5 +1,11 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-success">{{ button_label|default('Enregsitrer') }}</button> 
-    <a class="btn btn-primary" href="{{ path('articles_index') }}">Retour à la liste des articles</a>
+    {#{ form_widget(form) }#}
+    {{ form_row(form.titre, {'label': 'Titre', 'attr': {'placeholder': 'Donnez un titre à l\'article'}}) }}
+    {{ form_row(form.contenu, {'label': 'Contenu'}) }}
+    {{ form_row(form.categorie, {'label': 'Catégorie'}) }}
+    {{ form_row(form.image, {'label': 'Image', 'attr': {'placeholder': 'Choisissez une image pour l\'article'}}) }}
+
+    <button class="btn btn-success mt-3">{{ button_label|default('Enregistrer') }}</button> 
+    <button type="reset" class="btn btn-secondary mt-3">Annuler</button>
+    <a class="btn btn-primary mt-3" href="{{ path('articles_index') }}">Retour à la liste des articles</a>
 {{ form_end(form) }}

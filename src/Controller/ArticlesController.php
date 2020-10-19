@@ -43,7 +43,10 @@ class ArticlesController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
 
             // Default date/time when creating
-            $article->setCreatedAt(new \DateTime());
+            $article->setCreatedAt(new \DateTime())
+
+            // On récupère l'utilisateur connecté
+            ->setAuteur($this->getUser());
 
             $entityManager->persist($article);
             $entityManager->flush();

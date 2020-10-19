@@ -2,14 +2,13 @@
 
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
-{% block title %}New Articles{% endblock %}
+{% block title %}Rédaction d'un nouvel article{% endblock %}
 
 {% block body %}
-    <h1>Create new Articles</h1>
+    <h2>Nouvel article</h2>
 
     {{ include('articles/_form.html.twig') }}
 
-    <a href="{{ path('articles_index') }}">back to list</a>
 {% endblock %}
 
 

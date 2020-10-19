@@ -11,9 +11,9 @@
             <h3 class="text-danger font-weight-bold">{{ article.categorie.titre }}</h3>
             <h1 class="font-weight-bold">{{ article.titre }}</h1>
             <div class="text-muted bg-light px-2 py-1 text-meta">
-                Posté le {{ article.createdAt | date("d/m/Y") }} à {{ article.createdAt | date("H:i") }}, 
+                Posté le {{ article.createdAt | date("d/m/Y") }} à {{ article.createdAt | date("H:i") }},
                 {% if article.updatedAt != null %}
-                    mis à jour le {{ article.updatedAt | date("d/m/Y") }} à {{ article.updatedAt | date("H:i") }}, 
+                mis à jour le {{ article.updatedAt | date("d/m/Y") }} à {{ article.updatedAt | date("H:i") }},
                 {% endif %}
                 par {{ article.auteur.username }} <span class="badge badge-primary ml-2">298 lectures</span>
             </div>
@@ -32,6 +32,20 @@
                         class="text-white text-decoration-none">Web</a></span>
             </div>
         </article>
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="row justify-content-sm-center">
+                <div class="col-sm-2 mb-3">
+                    <a class="btn btn-sm btn-info" href="{{ path('articles_edit', {'id': article.id}) }}">Editer</a>
+                </div>
+                <div class="col-sm-2 mb-3">
+                    {{ include('articles/_delete_form.html.twig') }}
+                </div>
+                <div class="col-sm-2 mb-3">
+                    <a class="btn btn-sm btn-primary" href="#">Désactiver</a>
+                </div>
+            </div>
+        {% endif %}
 
         <section id="commentaires" class="mt-4">
             <h4 class="bg-light px-3 py-2 font-weight-bold">Commentaires de l'article <span
@@ -60,9 +74,10 @@
             <div id="c-{{ commentaire.id }}" class="row my-1 mx-1 border">
                 <div class="col-3 py-2 bg-light text-center">
                     {% if commentaire.auteur.avatar != null %}
-                        <img class="img-fluid" style="max-width:80px; width:100%;" src="{{ commentaire.auteur.avatar }}" alt="{{ commentaire.auteur }}">
+                    <img class="img-fluid" style="max-width:80px; width:100%;" src="{{ commentaire.auteur.avatar }}"
+                        alt="{{ commentaire.auteur }}">
                     {% else %}
-                        <img class="img-fluid" src="{{ asset('images/avatar.png') }}" alt="{{ commentaire.auteur }}">
+                    <img class="img-fluid" src="{{ asset('images/avatar.png') }}" alt="{{ commentaire.auteur }}">
                     {% endif %}
                     <p class="text-meta">
                         ({{ commentaire.id }}) {{ commentaire.auteur }}<br>
