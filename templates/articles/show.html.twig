@@ -5,7 +5,7 @@
 {% block title %}Articles{% endblock %}
 
 {% block body %}
-<div class="row">
+<div class="row pb-5">
     <div class="col-sm-8 mt-3 pr-5 text-justify">
         <article class="mb-4 pb-3">
             <h3 class="text-danger font-weight-bold">{{ article.categorie.titre }}</h3>
@@ -48,8 +48,12 @@
         {% endif %}
 
         <section id="commentaires" class="mt-4">
-            <h4 class="bg-light px-3 py-2 font-weight-bold">Commentaires de l'article <span
-                    class="badge badge-primary rounded">{{ article.commentaires | length }}</span></h4>
+            <div class="bg-info rounded">
+                <h4 class="px-3 py-2 text-white font-weight-bold">
+                    Commentaires de l'article 
+                    <span class="badge badge-primary rounded">{{ article.commentaires | length }}</span>
+                </h4>
+            </div>
 
             {% if app.user %}
             <div class="mt-2 mb-4">
@@ -64,7 +68,7 @@
                 <hr>
             </div>
             {% else %}
-            <div class="mt-2 mb-4">
+            <div class="my-3 px-3 py-3 border">
                 Vous devez être <a href="{{ path('app_login') }}">connecté(e)</a> pour écrire un commentaire.<br>
                 Pas encore de compte ? <a href="{{ path('app_register') }}">Enregistrez-vous</a> gratuitement.
             </div>

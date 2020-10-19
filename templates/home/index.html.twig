@@ -18,7 +18,7 @@
                 <img src="{{ article.image }}" alt="{{ article.titre }}" style="max-width: 150px;"
                     class="float-left mr-3 my-1 img-fluid">
                 <p>{{ article.contenu | slice(0,400) | raw | nl2br}}...</p>
-                <a href="{{ path('articles_show', { 'id': article.id }) }}" class="btn btn-primary">Lire la suite</a>
+                <a href="{{ path('articles_show', { 'id': article.id }) }}" class="btn btn-info">Lire la suite</a>
             </div>
         </article>
         {% endfor %}

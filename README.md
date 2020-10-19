@@ -9,7 +9,7 @@ En cours de développement...
 - connexion utilisateur
 - rôles
 - pagination
-- profil user + admin links
+- profil user
 - CKEditor
 
 ### A faire
@@ -20,7 +20,10 @@ En cours de développement...
 - password reset (reset-assword-bundle)
 - upload d'images (Vich Uploader)
 - password confirm dans l'inscription
+- commentaires : éditer et supprimer son propre commentaire
 - mots clés (tags)
+- afficher tous les articles  par Tags
+- afficher tous les articles par catégorie
 - espace d'administration (ADMIN)
 - affichage dans la sidebar des catégories avec le nb d'articles par catégorie
 - affichage dans la sidebar des articles populaires (3 articles les plus lus/consultés)
