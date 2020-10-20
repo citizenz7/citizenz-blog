@@ -2,10 +2,10 @@
 En cours de développement...
 
 ### Fait
-- articles + détection du user
+- articles (détection du user qui poste l'article)
 - users
 - categories
-- commentaires sur page SHOW article + détection du user
+- commentaires sur page SHOW article (détection du user qui poste le commentaire)
 - connexion utilisateur
 - rôles (USER, ADMIN)
 - pagination
@@ -16,12 +16,13 @@ En cours de développement...
 - à propos
 - social networks dans la side bar
 - recherche
+- formulaire de contact
 
 ### A faire
+- slug (slugify)
+- pages d'erreur : 404, 403, 50x
 - activer/désactiver un article (isEnable (boolean) - admin)
 - activer/désactiver un commentaire (isEnable (boolean) - users + admin)
-- slug (slugify)
-- formulaire de contact
 - password reset (reset-assword-bundle)
 - upload d'images (Vich Uploader)
 - password confirm dans l'inscription
@@ -29,9 +30,8 @@ En cours de développement...
 - mots clés (tags)
 - afficher tous les articles par Tags
 - afficher tous les articles par catégorie
-- espace d'administration (ADMIN)
 - affichage dans la sidebar des catégories avec le nb d'articles par catégorie
 - affichage dans la sidebar des articles populaires (3 articles les plus lus/consultés)
 - affichage dans la sidebar des 3 derniers commentaires (+ID)
-- pages d'erreur : 404, 403, 50x
+- espace d'administration (ADMIN)
 - tri colonnes (notamment dans ADMIN)
