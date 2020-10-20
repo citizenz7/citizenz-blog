@@ -33,6 +33,5 @@ En cours de développement...
 - affichage dans la sidebar des catégories avec le nb d'articles par catégorie
 - affichage dans la sidebar des articles populaires (3 articles les plus lus/consultés)
 - affichage dans la sidebar des 3 derniers commentaires (+ID)
-- FRONT : login, register
 - pages d'erreur : 404, 403, 50x
 - tri colonnes (notamment dans ADMIN)
