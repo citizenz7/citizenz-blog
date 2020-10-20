@@ -7,22 +7,27 @@ En cours de développement...
 - categories
 - commentaires sur page SHOW article + détection du user
 - connexion utilisateur
-- rôles
+- rôles (USER, ADMIN)
 - pagination
 - profil user
-- CKEditor
+- CKEditor (textarea)
 - nb de lectures par article
+- CGU
+- à propos
+- social networks dans la side bar
+- recherche
 
 ### A faire
-- recherche
+- activer/désactiver un article (isEnable (boolean) - admin)
+- activer/désactiver un commentaire (isEnable (boolean) - users + admin)
 - slug (slugify)
 - formulaire de contact
 - password reset (reset-assword-bundle)
 - upload d'images (Vich Uploader)
 - password confirm dans l'inscription
-- commentaires : éditer et supprimer son propre commentaire
+- commentaires : éditer et/ou supprimer son propre commentaire
 - mots clés (tags)
-- afficher tous les articles  par Tags
+- afficher tous les articles par Tags
 - afficher tous les articles par catégorie
 - espace d'administration (ADMIN)
 - affichage dans la sidebar des catégories avec le nb d'articles par catégorie

@@ -14,6 +14,7 @@ class AproposController extends AbstractController
     {
         return $this->render('apropos/index.html.twig', [
             'controller_name' => 'AproposController',
+            'current_menu' => 'Apropos'
         ]);
     }
 }

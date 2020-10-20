@@ -2,17 +2,17 @@
 
 namespace App\Controller;
 
-use App\Entity\Users;
 use App\Entity\Articles;
 use App\Form\ArticlesType;
 use App\Entity\Commentaires;
 use App\Form\CommentaireType;
-use App\Repository\UsersRepository;
 use App\Repository\ArticlesRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -82,8 +82,7 @@ class ArticlesController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $commentaire->setCreatedAt(new \DateTime())
                     ->setArticle($article)
                     // On récupère l'utilisateur connecté
@@ -112,7 +111,6 @@ class ArticlesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $article->setUpdatedAt(new \DateTime());
 
             $this->getDoctrine()->getManager()->flush();

@@ -5,18 +5,33 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
+<div class="row justify-content-md-center py-5">
+    <div class="col-sm-4 card px-5 py-4">
+
+        {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+        {% endfor %}
 
-    <h1>S'enregister</h1>
+        <div class="text-center"><h1>S'enregister</h1></div>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username, {'label': 'Pseudo', 'attr': {'placeholder': 'Entrez un pseudo'}}) }}
-        {{ form_row(registrationForm.email, {'label': 'Email', 'attr': {'placeholder': 'Entrez une adresse e-mail'}}) }}
-        {{ form_row(registrationForm.plainPassword, {'label': 'Mot de passe', 'attr': {'placeholder': 'Entrez un mot de passe'}}) }}
-        {{ form_row(registrationForm.agreeTerms, {'label': 'Valider le RGPD'}) }}
+        <div class="form-group mt-4">
+            {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.username, {'label': 'Pseudo', 'attr': {'placeholder': 'Entrez un pseudo'}}) }}
+                {{ form_row(registrationForm.email, {'label': 'Email', 'attr': {'placeholder': 'Entrez une adresse e-mail'}})
+                }}
+                {{ form_row(registrationForm.plainPassword, {'label': 'Mot de passe', 'attr': {'placeholder': 'Entrez un mot de passe'}})
+                }}
 
-        <button type="submit" class="btn btn-success">S'enregister</button> <button type="reset" class="btn btn-secondary">Annuler</button>
-    {{ form_end(registrationForm) }}
+                <div class="text-center">
+                    <a href="#"><i class="fas fa-angle-right"></i> Accepter les CGU <i
+                            class="fas fa-angle-left"></i></a><br>
+                    {{ form_row(registrationForm.agreeTerms, {'label': 'Cochez la case'}) }}
+
+                    <button type="submit" class="btn btn-success">S'enregister</button>
+                    <button type="reset" class="btn btn-secondary">Annuler</button>
+                </div>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+</div>
 {% endblock %}
