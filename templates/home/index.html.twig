@@ -8,7 +8,7 @@
     <div class="col-sm-8 mt-3">
         {% for article in articles %}
         <article class="pr-4 mb-4 pb-3 border-bottom text-justify ">
-            <h4 class="text-danger">{{ article.categorie.titre }}</h4>
+            <h4 class="text-danger"><a href="{{ path('categories_show', {'id': article.categorie.id}) }}">{{ article.categorie.titre }}</a></h4>
             <h1 class="font-weight-bold">{{ article.titre }}</h1>
             <div class="text-muted py-1">
                 Posté le {{ article.createdAt | date("d/m/Y") }} à

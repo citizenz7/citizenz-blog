@@ -19,6 +19,22 @@ class CommentairesRepository extends ServiceEntityRepository
         parent::__construct($registry, Commentaires::class);
     }
 
+    // Retourne les 3 derniers commentaires (par date)
+    /**
+    * @return Commentaires[] Returns an array of Commentaires objects
+    */
+    public function lastComments()
+    {
+        return $this->createQueryBuilder('c')
+            //->andWhere('a.exampleField = :val')
+            //->setParameter('val', $value)
+            ->orderBy('c.id', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Commentaires[] Returns an array of Commentaires objects
     //  */

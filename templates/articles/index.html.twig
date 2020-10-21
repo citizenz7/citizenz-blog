@@ -14,23 +14,24 @@
                 <th>Created_at</th>
                 <th>Updated_at</th>
                 <th>Image</th>
-                <th width="12%">actions</th>
+                <th width="15%">actions</th>
             </tr>
         </thead>
         <tbody>
         {% for article in articles %}
-            <tr class="text-justify">
+            <tr class="text-justify" style="font-size: 13px;">
                 <td>{{ article.id }}</td>
                 <td>{{ article.titre }}</td>
                 <td>{{ article.contenu | slice(0,100) }}...</td>
-                <td style="font-size:12px;">{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td style="font-size:12px;">{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td><img src="{{ article.image }}" alt="{{ article.titre }}" class="img-fluid" style="max-width:100px;"></td>
                 <td>
                     <a class="btn btn-sm btn-primary" href="{{ path('articles_show', {'id': article.id}) }}">V</a>
                     <a class="btn btn-sm btn-info" href="{{ path('articles_edit', {'id': article.id}) }}">E</a>
+                    <a class="btn btn-sm btn-secondary" href="#">D/A</a>
                     {{ include('articles/_delete_form.html.twig') }}
-                    <a class="btn btn-sm btn-secondary" href="#">D</a>
+                    
                 </td>
             </tr>
         {% else %}

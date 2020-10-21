@@ -15,7 +15,7 @@
                     {% if user.roles|json_encode == '["ROLE_ADMIN","ROLE_USER"]' %}
                     <span class="text-danger">Administrateur</span>
                     {% else %}
-                    <span class="text-warning">Utilisateur</span>
+                    <span class="text-info">Utilisateur</span>
                     {% endif %}
                 </p>
                 <p>
@@ -42,6 +42,7 @@
     </div>
 
     {% include('home/sidebar.html.twig') %}
+
 </div>
 
 {% else %}

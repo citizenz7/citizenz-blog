@@ -42,7 +42,7 @@
                     {{ include('articles/_delete_form.html.twig') }}
                 </div>
                 <div class="col-sm-2 mb-3">
-                    <a class="btn btn-sm btn-primary" href="#">Désactiver</a>
+                    <a class="btn btn-sm btn-secondary" href="#">Désactiver</a>
                 </div>
             </div>
         {% endif %}
@@ -76,7 +76,7 @@
 
             {% for commentaire in article.commentaires | reverse %}
             <div id="c-{{ commentaire.id }}" class="row my-1 mx-1 border">
-                <div class="col-3 py-2 bg-light text-center">
+                <div class="col-3 pt-3 text-center" style="background-color: #F8F9FA;">
                     {% if commentaire.auteur.avatar != null %}
                     <img class="img-fluid" style="max-width:80px; width:100%;" src="{{ commentaire.auteur.avatar }}"
                         alt="{{ commentaire.auteur }}">
@@ -98,6 +98,5 @@
     </div>
 
     {% include('home/sidebar.html.twig') %}
-
 </div>
 {% endblock %}
