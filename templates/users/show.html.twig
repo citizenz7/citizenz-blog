@@ -25,13 +25,25 @@
                     Votre mot de passe : <a href="#">demander un nouveau mot de passe</a>
                 </p>
                 <p>
-                    <a class="btn btn-primary btn-lg" href="{{ path('users_edit', {'id': user.id}) }}">Editer votre
-                        profil</a>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <a class="btn btn-info btn-lg" href="{{ path('articles_index') }}">Liste des articles</a> 
-                        <a class="btn btn-success btn-lg" href="{{ path('articles_new') }}">Créer un article</a>
-                    {% endif %}
+                    <a class="btn btn-primary" href="{{ path('users_edit', {'id': user.id}) }}">Editer votre profil</a>
                 </p>
+                {% if is_granted('ROLE_ADMIN') %}
+
+                <div class="row mt-5 border px-3 py-3">
+                    <div class="col">
+                        <a class="btn btn-info btn-lg" href="{{ path('articles_index') }}">Liste des articles</a> 
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-success btn-lg" href="{{ path('articles_new') }}">Créer un article</a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-info btn-lg" href="{{ path('categories_index') }}">Liste des catégories</a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-success btn-lg" href="{{ path('categories_new') }}">Créer une catégorie</a>
+                    </div>
+                </div>
+                {% endif %}
             </div>
             <div class="col-sm-2">
                 <img src="{{ user.avatar }}" class="img-fluid mt-2" style="max-width: 100px;">

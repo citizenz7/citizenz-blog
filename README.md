@@ -18,13 +18,14 @@ En cours de développement...
 - recherche
 - formulaire de contact
 - password reset (reset-password-bundle)
+- slug Articles
+- slug Categories
 
 ### A faire
-- slug
 - pages d'erreur : 404, 403, 50x
-- mots clés (tags)
 - upload d'images
 - password confirm dans l'inscription
+- mots clés (tags)
 - espace d'administration (ADMIN)
 - activer/désactiver un article (isEnable (boolean) - admin)
 - activer/désactiver un commentaire (isEnable (boolean) - users + admin)

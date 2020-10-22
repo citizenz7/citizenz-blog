@@ -1,12 +1,22 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme resetForm 'bootstrap_4_layout.html.twig' %}
+
 {% block title %}Réinitialisation du mot de passe{% endblock %}
 
 {% block body %}
-    <h1>Réinitialisez votre mot de passe</h1>
+<div class="row pb-5">
+    <div class="col-sm-8 mt-3 pr-5 text-justify">
+        <h2>Réinitialisez votre mot de passe</h2>
 
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-        <button class="btn btn-primary">Réinitialisation du mot de passe</button>
-    {{ form_end(resetForm) }}
+        {{ form_start(resetForm) }}
+            {{ form_row(resetForm.plainPassword) }}
+            <button class="btn btn-primary">Réinitialisation du mot de passe</button>
+        {{ form_end(resetForm) }}
+
+    </div>
+
+    {% include('home/sidebar.html.twig') %}
+
+</div>
 {% endblock %}

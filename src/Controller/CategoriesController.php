@@ -30,40 +30,40 @@ class CategoriesController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $category = new Categories();
-        $form = $this->createForm(CategoriesType::class, $category);
+        $categorie = new Categories();
+        $form = $this->createForm(CategoriesType::class, $categorie);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($category);
+            $entityManager->persist($categorie);
             $entityManager->flush();
 
             return $this->redirectToRoute('categories_index');
         }
 
         return $this->render('categories/new.html.twig', [
-            'category' => $category,
+            'categorie' => $categorie,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="categories_show", methods={"GET"})
+     * @Route("/{slug}", name="categories_show", methods={"GET"})
      */
-    public function show(Categories $category): Response
+    public function show(Categories $categorie): Response
     {
         return $this->render('categories/show.html.twig', [
-            'category' => $category,
+            'categorie' => $categorie,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="categories_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="categories_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Categories $category): Response
+    public function edit(Request $request, Categories $categories): Response
     {
-        $form = $this->createForm(CategoriesType::class, $category);
+        $form = $this->createForm(CategoriesType::class, $categories);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -73,7 +73,7 @@ class CategoriesController extends AbstractController
         }
 
         return $this->render('categories/edit.html.twig', [
-            'category' => $category,
+            'catego$categories' => $categories,
             'form' => $form->createView(),
         ]);
     }
@@ -81,11 +81,11 @@ class CategoriesController extends AbstractController
     /**
      * @Route("/{id}", name="categories_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Categories $category): Response
+    public function delete(Request $request, Categories $categories): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$categories->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($category);
+            $entityManager->remove($categories);
             $entityManager->flush();
         }
 

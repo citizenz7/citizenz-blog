@@ -11,7 +11,7 @@
       {{ form_start(searchForm) }}
       {{ form_row(searchForm.titre, {'label': 'La recherche s\'effectue sur le titre de l\'article', 'attr': {'placeholder': 'Entrez un mot clé', 'class': 'form-control'}})
       }}
-      <button class="btn btn-primary">Rechercher</button>
+      <button class="btn btn-info">Rechercher</button>
       {{ form_end(searchForm) }}
     </div>
 
@@ -24,13 +24,13 @@
       {% for article in articles %}
       <div class="mt-3 py-3 px-3 shadow">
         <h4 class="card-title font-weight-bold">{{ article.titre }}</h4>
-        <span class="badge badge-primary p-2 rounded">Publié le {{ article.createdAt | date('m/d/Y') }}</span>
-        <span class="badge badge-info p-2 rounded">{{ article.categorie.titre }}</span>
+        <span class="badge badge-primary p-2 rounded">Publié le {{ article.createdAt | date('d/m/Y') }}</span>
+        <span class="badge badge-warning p-2 rounded">{{ article.categorie.titre }}</span>
         <p class="card-text text-justify text-muted">
           {{ article.contenu | slice(0, 250) | raw }} ...
         </p>
         <p class="text-right">
-          <a href="{{ path('articles_show', {'id': article.id}) }}" class="btn btn-primary">Lire l'article</a>
+          <a href="{{ path('articles_show', {'slug': article.slug}) }}" class="btn btn-success">Lire l'article</a>
         </p>
       </div>
       {% endfor %}

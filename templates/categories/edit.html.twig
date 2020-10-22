@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Categories{% endblock %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Editer la catégorie{% endblock %}
 
 {% block body %}
-    <h1>Edit Categories</h1>
 
-    {{ include('categories/_form.html.twig', {'button_label': 'Update'}) }}
+<div class="row pb-5">
+    <div class="col-sm-8 mt-3 pr-5 text-justify">
+        {{ include('categories/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    </div>
 
-    <a href="{{ path('categories_index') }}">back to list</a>
-
-    {{ include('categories/_delete_form.html.twig') }}
+    {% include('home/sidebar.html.twig') %}
+</div>
 {% endblock %}

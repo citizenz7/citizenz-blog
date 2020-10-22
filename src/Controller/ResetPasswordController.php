@@ -162,7 +162,7 @@ class ResetPasswordController extends AbstractController
         $email = (new TemplatedEmail())
             ->from(new Address('contact@citizenz.info', 'Citizenz Blog'))
             ->to($user->getEmail())
-            ->subject('Your password reset request')
+            ->subject('citizenz.info - Votre demande de réinitialisation de mot de passe')
             ->htmlTemplate('reset_password/email.html.twig')
             ->context([
                 'resetToken' => $resetToken,

@@ -8,8 +8,12 @@
     <div class="col-sm-8 mt-3">
         {% for article in articles %}
         <article class="pr-4 mb-4 pb-3 border-bottom text-justify ">
-            <h4 class="text-danger"><a href="{{ path('categories_show', {'id': article.categorie.id}) }}">{{ article.categorie.titre }}</a></h4>
-            <h1 class="font-weight-bold">{{ article.titre }}</h1>
+            <h4 class="text-danger"><a href="{{ path('categories_show', {'slug': article.categorie.slug}) }}">{{ article.categorie.titre }}</a></h4>
+            <h1 class="font-weight-bold">{{ article.titre }} 
+                {% if article.commentaires is not empty %}
+                    <span class="text-meta2 badge badge-primary">{{ article.commentaires | length }}</span>
+                {% endif %}
+            </h1>
             <div class="text-muted py-1">
                 Posté le {{ article.createdAt | date("d/m/Y") }} à
                 {{ article.createdAt | date("H:i") }} par {{ article.auteur.username }}
@@ -17,8 +21,8 @@
             <div class="mt-2">
                 <img src="{{ article.image }}" alt="{{ article.titre }}" style="max-width: 150px;"
                     class="float-left mr-3 my-1 img-fluid">
-                <p>{{ article.contenu | slice(0,400) | raw | nl2br}}...</p>
-                <a href="{{ path('articles_show', { 'id': article.id }) }}" class="btn btn-info">Lire la suite</a>
+                <p>{{ article.contenu | slice(0,500) | raw }}...</p>
+                <a href="{{ path('articles_show', { 'slug': article.slug }) }}" class="btn btn-info">Lire la suite</a>
             </div>
         </article>
         {% endfor %}

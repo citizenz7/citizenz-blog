@@ -64,7 +64,7 @@ class ArticlesController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="articles_show", methods={"GET","POST"})
+     * @Route("/{slug}", name="articles_show", methods={"GET","POST"})
      */
     public function show(Articles $article, Request $request, EntityManagerInterface $manager): Response
     {
@@ -92,7 +92,7 @@ class ArticlesController extends AbstractController
             $manager->flush();
 
             return $this->redirectToRoute('articles_show', [
-                'id' => $article->getId()
+                'slug' => $article->getSlug()
             ]);
         }
 
@@ -103,7 +103,7 @@ class ArticlesController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="articles_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="articles_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Articles $article): Response
     {
@@ -125,7 +125,7 @@ class ArticlesController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="articles_delete", methods={"DELETE"})
+     * @Route("/{slug}", name="articles_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Articles $article): Response
     {
