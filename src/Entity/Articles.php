@@ -77,7 +77,6 @@ class Articles
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
-        $this->mots_cles = new ArrayCollection();
     }
 
     public function getId(): ?int
