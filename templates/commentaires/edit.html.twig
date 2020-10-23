@@ -1,13 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Commentaires{% endblock %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Edition commentaire ID: {{ commentaire.id }}{% endblock %}
 
 {% block body %}
-    <h1>Edit Commentaires</h1>
+<div class="row pb-5">
+    <div class="col-sm-8 mt-3 pr-5 text-justify">
+        <h2>Editer votre commentaire (id : {{ commentaire.id }})</h2>
 
-    {{ include('commentaires/_form.html.twig', {'button_label': 'Update'}) }}
+        {{ include('commentaires/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('commentaires_index') }}">back to list</a>
+        {{ include('commentaires/_delete_form.html.twig') }}
 
-    {{ include('commentaires/_delete_form.html.twig') }}
+    </div>
+
+    {% include('home/sidebar.html.twig') %}
+</div>
 {% endblock %}

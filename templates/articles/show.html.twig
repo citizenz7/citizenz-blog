@@ -8,14 +8,17 @@
 <div class="row pb-5">
     <div class="col-sm-8 mt-3 pr-5 text-justify">
         <article class="mb-4 pb-3">
-            <h3 class="text-danger font-weight-bold"><a href="{{ path('categories_show', {'slug': article.categorie.slug}) }}">{{ article.categorie.titre }}</a></h3>
+            <h3 class="text-danger font-weight-bold"><a
+                    href="{{ path('categories_show', {'slug': article.categorie.slug}) }}">{{ article.categorie.titre }}</a>
+            </h3>
             <h1 class="font-weight-bold">{{ article.titre }}</h1>
             <div class="text-muted bg-light px-2 py-1 text-meta">
                 Posté le {{ article.createdAt | date("d/m/Y") }} à {{ article.createdAt | date("H:i") }},
                 {% if article.updatedAt != null %}
                 mis à jour le {{ article.updatedAt | date("d/m/Y") }} à {{ article.updatedAt | date("H:i") }},
                 {% endif %}
-                par {{ article.auteur.username }} <span class="badge badge-primary ml-2">Lectures : {{ article.vues }}</span>
+                par {{ article.auteur.username }} <span class="badge badge-primary ml-2">Lectures :
+                    {{ article.vues }}</span>
             </div>
             <div class="mt-2">
                 <img src="{{ article.image }}" alt="{{ article.titre }}" class="float-left mr-3 my-1 img-fluid"
@@ -24,33 +27,36 @@
             </div>
             <div class="mt-4 py-2 border-top border-bottom lead">
                 Tags :
-                <span class="badge badge-secondary rounded py-1 px-2 mx-1"><a href="#"
-                        class="text-white text-decoration-none">Debian</a></span>
-                <span class="badge badge-secondary rounded py-1 px-2 mx-1"><a href="#"
-                        class="text-white text-decoration-none">Nginx</a></span>
-                <span class="badge badge-secondary rounded py-1 px-2 mx-1"><a href="#"
-                        class="text-white text-decoration-none">Web</a></span>
+                <span class="badge badge-secondary rounded py-1 px-2 mx-1">
+                    <a href="#" class="text-white text-decoration-none text-meta">Debian</a>
+                </span>
+                <span class="badge badge-secondary rounded py-1 px-2 mx-1">
+                    <a href="#" class="text-white text-decoration-none text-meta">Nginx</a>
+                </span>
+                <span class="badge badge-secondary rounded py-1 px-2 mx-1">
+                    <a href="#" class="text-white text-decoration-none text-meta">Web</a>
+                </span>
             </div>
         </article>
 
         {% if is_granted('ROLE_ADMIN') %}
-            <div class="row justify-content-sm-center">
-                <div class="col-sm-2 mb-3">
-                    <a class="btn btn-sm btn-info" href="{{ path('articles_edit', {'slug': article.slug}) }}">Editer</a>
-                </div>
-                <div class="col-sm-2 mb-3">
-                    {{ include('articles/_delete_form.html.twig') }}
-                </div>
-                <div class="col-sm-2 mb-3">
-                    <a class="btn btn-sm btn-secondary" href="#">Désactiver</a>
-                </div>
+        <div class="row justify-content-sm-center">
+            <div class="col-sm-2 mb-3">
+                <a class="btn btn-sm btn-info" href="{{ path('articles_edit', {'slug': article.slug}) }}">Editer</a>
             </div>
+            <div class="col-sm-2 mb-3">
+                {{ include('articles/_delete_form.html.twig') }}
+            </div>
+            <div class="col-sm-2 mb-3">
+                <a class="btn btn-sm btn-secondary" href="#">Désactiver</a>
+            </div>
+        </div>
         {% endif %}
 
         <section id="commentaires" class="mt-4">
             <div class="bg-info rounded">
                 <h4 class="px-3 py-2 text-white font-weight-bold">
-                    Commentaires de l'article 
+                    Commentaires de l'article
                     <span class="badge badge-primary rounded">{{ article.commentaires | length }}</span>
                 </h4>
             </div>
@@ -89,7 +95,21 @@
                     </p>
                 </div>
                 <div class="col py-2">
-                    {{ commentaire.contenu | nl2br | raw }}
+                    <p>{{ commentaire.contenu | nl2br | raw }}</p>
+                    <p class="text-right">
+                        {% if (app.user.username == commentaire.auteur) or (is_granted('ROLE_ADMIN')) %}
+                        <div class="row">
+                            <div class="col-1">
+                                <a class="btn btn-primary2 btn-sm"
+                                    href="{{ path('commentaires_edit', {'id': commentaire.id}) }}"><i
+                                        class="fas fa-edit"></i></a>
+                            </div>
+                            <div class="col-1">
+                                {{ include('commentaires/_delete_form.html.twig') }}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </p>
                 </div>
             </div>
             {% endfor %}

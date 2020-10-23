@@ -138,4 +138,42 @@ class ArticlesController extends AbstractController
         return $this->redirectToRoute('articles_index');
     }
 
+
+    // COMMENTAIRES //
+
+    /**
+     * @Route("/commentaires/{id}/edit", name="commentaires_edit", methods={"GET","POST"})
+     */
+    public function editCommentaire(Request $request, Commentaires $commentaire): Response
+    {
+        $form = $this->createForm(CommentaireType::class, $commentaire);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('commentaires/edit.html.twig', [
+            'commentaire' => $commentaire,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/commentaires/{id}", name="commentaires_delete", methods={"DELETE"})
+     */
+    public function deleteCommentaires(Request $request, Commentaires $commentaire): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$commentaire->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($commentaire);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('home');
+    }
+
 }

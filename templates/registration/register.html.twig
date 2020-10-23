@@ -12,14 +12,14 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
         {% endfor %}
 
-        <div class="text-center"><h1>S'enregister</h1></div>
+        <div class="text-center"><h2>S'enregister</h2></div>
 
         <div class="form-group mt-4">
             {{ form_start(registrationForm) }}
-                {{ form_row(registrationForm.username, {'label': 'Pseudo', 'attr': {'placeholder': 'Entrez un pseudo'}}) }}
-                {{ form_row(registrationForm.email, {'label': 'Email', 'attr': {'placeholder': 'Entrez une adresse e-mail'}})
+                {{ form_row(registrationForm.username, {'attr': {'placeholder': 'Entrez un pseudo'}}) }}
+                {{ form_row(registrationForm.email, {'attr': {'placeholder': 'Entrez une adresse e-mail'}})
                 }}
-                {{ form_row(registrationForm.plainPassword, {'label': 'Mot de passe', 'attr': {'placeholder': 'Entrez un mot de passe'}})
+                {{ form_row(registrationForm.plainPassword, {'attr': {'placeholder': 'Entrez un mot de passe'}})
                 }}
 
                 <div class="text-center">
@@ -32,6 +32,7 @@
                 </div>
             {{ form_end(registrationForm) }}
         </div>
+        <p class="text-center text-meta">Déjà enregistré(e) ? <a href="{{ path('app_login') }}">Connexion</a></p>
     </div>
 </div>
 {% endblock %}

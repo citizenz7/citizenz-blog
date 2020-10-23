@@ -20,16 +20,18 @@ En cours de développement...
 - password reset (reset-password-bundle)
 - slug Articles
 - slug Categories
+- commentaires : éditer et/ou supprimer son propre commentaire
 
 ### A faire
 - pages d'erreur : 404, 403, 50x
 - upload d'images
 - password confirm dans l'inscription
 - mots clés (tags)
+- commentaires sur page article : accordeon commentaires (déplier / replier)
 - espace d'administration (ADMIN)
+- section "A lire aussi" : bas d'article (show) - 3 articles avec mêmes tags
 - activer/désactiver un article (isEnable (boolean) - admin)
 - activer/désactiver un commentaire (isEnable (boolean) - users + admin)
-- commentaires : éditer et/ou supprimer son propre commentaire
 - afficher tous les articles par Tags
 - afficher tous les articles par Catégorie
 - affichage dans la sidebar des catégories avec le nb d'articles par catégorie
