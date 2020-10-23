@@ -23,17 +23,20 @@ class CommentairesRepository extends ServiceEntityRepository
     /**
     * @return Commentaires[] Returns an array of Commentaires objects
     */
-    public function lastComments()
+    public function lastComments(): array
     {
         return $this->createQueryBuilder('c')
             //->andWhere('a.exampleField = :val')
             //->setParameter('val', $value)
+            ->join('c.auteur', 'a')
             ->orderBy('c.id', 'DESC')
+            ->select('a.username', 'c.id', 'c.contenu', 'c.created_at')
             ->setMaxResults(3)
             ->getQuery()
             ->getResult()
         ;
     }
+
 
     // /**
     //  * @return Commentaires[] Returns an array of Commentaires objects

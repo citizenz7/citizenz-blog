@@ -24,6 +24,8 @@
 
     </div>
 
-    {% include('home/sidebar.html.twig') %}
+    {% block sidebar %}
+        {{ sidebar() }}
+    {% endblock %}
 </div>
 {% endblock %}

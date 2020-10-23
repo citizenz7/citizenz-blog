@@ -73,9 +73,11 @@ class Articles
      */
     private $slug;
 
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->mots_cles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -220,5 +222,11 @@ class Articles
         $this->slug = $slug;
 
         return $this;
+    }
+
+
+
+    public function __toString() {
+        return $this->getTitre();
     }
 }

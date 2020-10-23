@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Articles;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * @method Articles|null find($id, $lockMode = null, $lockVersion = null)
@@ -39,13 +40,23 @@ class ArticlesRepository extends ServiceEntityRepository
     /**
     * @return Articles[] Returns an array of Articles objects
     */
-    public function popularArticles()
+    public function popularArticles(): array
     {
         return $this->createQueryBuilder('a')
             //->andWhere('a.exampleField = :val')
             //->setParameter('val', $value)
             ->orderBy('a.vues', 'DESC')
             ->setMaxResults(3)
+            ->select('a.titre', 'a.slug', 'a.vues')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function totalVues(): array
+    {
+        return $this->createQueryBuilder('a')
+            ->select('SUM(a.vues) AS vuesTotal')
             ->getQuery()
             ->getResult()
         ;
