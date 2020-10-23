@@ -22,6 +22,10 @@ En cours de développement...
 - slug Categories
 - commentaires : éditer et/ou supprimer son propre commentaire
 - pages d'erreur : 404, 403, 50x
+- stats sidebar (articles, commentaires, membres, lectures)
+- affichage dans la sidebar des catégories avec le nb d'articles par catégorie
+- affichage dans la sidebar des articles populaires (3 articles les plus lus/consultés)
+- affichage dans la sidebar des 3 derniers commentaires
 
 ### A faire
 - upload d'images
@@ -34,8 +38,4 @@ En cours de développement...
 - activer/désactiver un commentaire (isEnable (boolean) - users + admin)
 - afficher tous les articles par Tags
 - afficher tous les articles par Catégorie
-- affichage dans la sidebar des catégories avec le nb d'articles par catégorie
-- affichage dans la sidebar des articles populaires (3 articles les plus lus/consultés)
-- affichage dans la sidebar des 3 derniers commentaires
 - tri colonnes (notamment dans ADMIN)
-- stats sidebar (articles, commentaires, membres, lectures)
