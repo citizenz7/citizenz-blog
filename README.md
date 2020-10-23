@@ -21,9 +21,9 @@ En cours de développement...
 - slug Articles
 - slug Categories
 - commentaires : éditer et/ou supprimer son propre commentaire
+- pages d'erreur : 404, 403, 50x
 
 ### A faire
-- pages d'erreur : 404, 403, 50x
 - upload d'images
 - password confirm dans l'inscription
 - mots clés (tags)
