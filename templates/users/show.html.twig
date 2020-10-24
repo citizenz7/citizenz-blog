@@ -43,17 +43,19 @@
                         <a class="btn btn-success btn-lg" href="{{ path('categories_new') }}">Créer une catégorie</a>
                     </div>
                 </div>
+
                 {% endif %}
             </div>
             <div class="col-sm-2">
                 <img src="{{ user.avatar }}" class="img-fluid mt-2" style="max-width: 100px;">
             </div>
 
-
         </div>
     </div>
 
-    {% include('home/sidebar.html.twig') %}
+    {% block sidebar %}
+        {{ sidebar() }}
+    {% endblock %}
 
 </div>
 

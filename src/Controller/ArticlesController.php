@@ -22,6 +22,8 @@ class ArticlesController extends AbstractController
 {
     /**
      * @Route("/", name="articles_index", methods={"GET"})
+     * @param ArticlesRepository $articlesRepository
+     * @return Response
      */
     public function index(ArticlesRepository $articlesRepository): Response
     {
@@ -32,6 +34,8 @@ class ArticlesController extends AbstractController
 
     /**
      * @Route("/new", name="articles_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -65,6 +69,10 @@ class ArticlesController extends AbstractController
 
     /**
      * @Route("/{slug}", name="articles_show", methods={"GET","POST"})
+     * @param Articles $article
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @return Response
      */
     public function show(Articles $article, Request $request, EntityManagerInterface $manager): Response
     {
@@ -104,6 +112,9 @@ class ArticlesController extends AbstractController
 
     /**
      * @Route("/{slug}/edit", name="articles_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Articles $article
+     * @return Response
      */
     public function edit(Request $request, Articles $article): Response
     {
@@ -126,6 +137,9 @@ class ArticlesController extends AbstractController
 
     /**
      * @Route("/{slug}", name="articles_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Articles $article
+     * @return Response
      */
     public function delete(Request $request, Articles $article): Response
     {
@@ -143,6 +157,9 @@ class ArticlesController extends AbstractController
 
     /**
      * @Route("/commentaires/{id}/edit", name="commentaires_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Commentaires $commentaire
+     * @return Response
      */
     public function editCommentaire(Request $request, Commentaires $commentaire): Response
     {
@@ -164,6 +181,9 @@ class ArticlesController extends AbstractController
 
     /**
      * @Route("/commentaires/{id}", name="commentaires_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Commentaires $commentaire
+     * @return Response
      */
     public function deleteCommentaires(Request $request, Commentaires $commentaire): Response
     {

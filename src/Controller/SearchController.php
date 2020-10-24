@@ -13,6 +13,10 @@ class SearchController extends AbstractController
 {
     /**
      * @Route("/recherche", name="recherche")
+     * @param Request $request
+     * @param ArticlesRepository $repo
+     * @param PaginatorInterface $paginator
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(Request $request, ArticlesRepository $repo, PaginatorInterface $paginator)
     {
