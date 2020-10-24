@@ -90,7 +90,7 @@
                     <img class="img-fluid" src="{{ asset('images/avatar.png') }}" alt="{{ commentaire.auteur }}">
                     {% endif %}
                     <p class="text-meta">
-                        ({{ commentaire.id }}) {{ commentaire.auteur }}<br>
+                        {{ commentaire.auteur }}<br>
                         le {{ commentaire.createdAt | date('d/m/y') }} à {{ commentaire.createdAt | date('H:i') }}
                     </p>
                 </div>
@@ -99,16 +99,7 @@
                     <p class="text-right">
                         {% if app.user %}
                             {% if (app.user.username == commentaire.auteur) or (is_granted('ROLE_ADMIN')) %}
-                            <div class="row">
-                                <div class="col-1">
-                                    <a class="btn btn-primary2 btn-sm"
-                                        href="{{ path('commentaires_edit', {'id': commentaire.id}) }}"><i
-                                            class="fas fa-edit"></i></a>
-                                </div>
-                                <div class="col-1">
-                                    {{ include('commentaires/_delete_form.html.twig') }}
-                                </div>
-                            </div>
+                                {{ include('commentaires/_delete_form.html.twig') }}
                             {% endif %}
                         {% endif %}
                     </p>

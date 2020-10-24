@@ -4,7 +4,7 @@
 
 {% block body %}
 
-{% if app.user.id == user.id %}
+{% if (app.user.id == user.id) or (is_granted('ROLE_ADMIN')) %}
 <div class="row">
     <div class="col-sm-8 mt-3 pr-5 text-justify">
         <div class="row mb-4 pb-3">
@@ -27,17 +27,22 @@
                 <p>
                     <a class="btn btn-primary" href="{{ path('users_edit', {'id': user.id}) }}">Editer votre profil</a>
                 </p>
-                {% if is_granted('ROLE_ADMIN') %}
+
+                {# 
+                    On affiche la partie Admin seulement si la personne connectée
+                    possède le role Admin ET si on affiche le profil du user qui possède l'ID 1 c'est à dire l'Admin
+                #}
+                {% if is_granted('ROLE_ADMIN') and user.id == 1 %}
 
                 <div class="row mt-5 border px-3 py-3">
                     <div class="col">
-                        <a class="btn btn-info btn-lg" href="{{ path('articles_index') }}">Liste des articles</a> 
+                        <a class="btn btn-info2 btn-lg" href="{{ path('articles_index') }}">Liste des articles</a> 
                     </div>
                     <div class="col">
                         <a class="btn btn-success btn-lg" href="{{ path('articles_new') }}">Créer un article</a>
                     </div>
                     <div class="col">
-                        <a class="btn btn-info btn-lg" href="{{ path('categories_index') }}">Liste des catégories</a>
+                        <a class="btn btn-warning2 btn-lg" href="{{ path('categories_index') }}">Liste des catégories</a>
                     </div>
                     <div class="col">
                         <a class="btn btn-success btn-lg" href="{{ path('categories_new') }}">Créer une catégorie</a>

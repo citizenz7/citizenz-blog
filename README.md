@@ -26,16 +26,16 @@ En cours de développement...
 - affichage dans la sidebar des catégories avec le nb d'articles par catégorie
 - affichage dans la sidebar des articles populaires (3 articles les plus lus/consultés)
 - affichage dans la sidebar des 3 derniers commentaires
+- password confirm dans l'inscription
 
 ### A faire
-- upload d'images
-- password confirm dans l'inscription
-- mots clés (tags)
 - commentaires sur page article : accordeon commentaires (déplier / replier)
 - espace d'administration (ADMIN)
-- section "A lire aussi" : bas d'article (show) - 3 articles avec mêmes tags
+- tri colonnes (notamment dans ADMIN)
 - activer/désactiver un article (isEnable (boolean) - admin)
 - activer/désactiver un commentaire (isEnable (boolean) - users + admin)
+- upload d'images
+- mots clés (tags)
+- section "A lire aussi" : bas d'article (show) - 3 articles avec mêmes tags
 - afficher tous les articles par Tags
 - afficher tous les articles par Catégorie
-- tri colonnes (notamment dans ADMIN)

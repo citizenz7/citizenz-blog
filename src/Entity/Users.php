@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UsersRepository::class)
@@ -38,6 +39,12 @@ class Users implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @var string The confirmed password
+     * @Assert\EqualTo(propertyPath="password", message="Les mots de passe doivent être identiques")
+     */
+    private $confirmPassword;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -117,6 +124,19 @@ class Users implements UserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+ 
+    public function getConfirmPassword(): string
+    {
+        return (string) $this->confirmPassword;
+    }
+
+    public function setConfirmPassword(string $confirmPassword): self
+    {
+        $this->confirmPassword = $confirmPassword;
 
         return $this;
     }
