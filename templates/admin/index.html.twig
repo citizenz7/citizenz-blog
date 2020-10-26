@@ -1,7 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}citizenz.info : Admin{% endblock %}
 
 {% block body %}
-<h1>Administration</h1>
+<div class="row pb-5">
+   <div class="col-sm-8 mt-3 pr-5 text-justify">
+      <h1>Administration</h1>
+      <ul>
+         <li>Tous les articles (pagination 7)</li>
+         <li>Créer un nouvel article</li>
+         <li>Toutes les catégories</li>
+         <li>Créer une nouvelle catégorie</li>
+         <li>Medias : images ?</li>
+         <li>Tous les commentaires + gestion ?</li>
+         <li>Tous les users + gestion</li>
+         <li>Statistiques détaillées</li>
+      </ul>
+
+   </div>
+
+   {% block sidebar %}
+      {{ sidebar() }}
+   {% endblock %}
+
+</div>
+
 {% endblock %}

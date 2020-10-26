@@ -5,10 +5,18 @@
 {% block title %}Rédaction d'un nouvel article{% endblock %}
 
 {% block body %}
-    <h2>Nouvel article</h2>
+<div class="row pb-5">
+    <div class="col-sm-8 mt-3 pr-5 text-justify">
+        <h2>Nouvel article</h2>
 
-    {{ include('articles/_form.html.twig') }}
+        {{ include('articles/_form.html.twig') }}
+
+    </div>
+
+    {% block sidebar %}
+        {{ sidebar() }}
+    {% endblock %}
+
+</div>
 
 {% endblock %}
-
-

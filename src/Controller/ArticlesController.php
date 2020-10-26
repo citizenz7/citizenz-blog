@@ -80,14 +80,12 @@ class ArticlesController extends AbstractController
         $article->setVues($newview);
 
         $entityManager = $this->getDoctrine()->getManager();
-
         $entityManager->persist($article);
         $entityManager->flush();
 
+        // Commentaire NEW
         $commentaire = new Commentaires();
-
         $form = $this->createForm(CommentaireType::class, $commentaire);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

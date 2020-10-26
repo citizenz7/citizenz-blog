@@ -29,6 +29,7 @@ En cours de développement...
 - password confirm dans l'inscription
 
 ### A faire
+- like sur article (+ajax)
 - commentaires sur page article : accordeon commentaires (déplier / replier)
 - espace d'administration (ADMIN)
 - tri colonnes (notamment dans ADMIN)
@@ -36,6 +37,8 @@ En cours de développement...
 - activer/désactiver un commentaire (isEnable (boolean) - users + admin)
 - upload d'images
 - mots clés (tags)
+- archives
+- RSS
 - section "A lire aussi" : bas d'article (show) - 3 articles avec mêmes tags
 - afficher tous les articles par Tags
 - afficher tous les articles par Catégorie

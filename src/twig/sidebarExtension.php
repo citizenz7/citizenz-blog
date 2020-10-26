@@ -70,14 +70,17 @@ class sidebarExtension extends AbstractExtension
         $users = $this->usersRepository->findAll();
         $vues = $this->articlesRepository->totalVues();
 
-        return $this->twig->render('home/sidebar.html.twig', [
-            'articles' => $articles,
-            'articlesAll' => $articlesAll,
-            'commentaires' => $commentaires,
-            'commentairesAll' => $commentairesAll,
-            'categories' => $categories,
-            'users' => $users,
-            'vues' => $vues
-        ]);
+        // return $this->twig->render('home/sidebar.html.twig', [
+        //     'articles' => $articles,
+        //     'articlesAll' => $articlesAll,
+        //     'commentaires' => $commentaires,
+        //     'commentairesAll' => $commentairesAll,
+        //     'categories' => $categories,
+        //     'users' => $users,
+        //     'vues' => $vues
+        // ]);
+
+        return $this->twig->render('home/sidebar.html.twig', 
+            compact('articles', 'articlesAll', 'commentaires', 'commentairesAll', 'categories', 'users', 'vues'));
     }
 }

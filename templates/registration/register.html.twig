@@ -22,7 +22,7 @@
                 {{ form_row(registrationForm.confirmPassword, {'attr': {'placeholder': 'Répétez le mot de passe'}}) }}
 
                 <div class="text-center">
-                    <a href="#"><i class="fas fa-angle-right"></i> Accepter les CGU <i
+                    <a href="{{ path('cgu') }}"><i class="fas fa-angle-right"></i> Accepter les CGU <i
                             class="fas fa-angle-left"></i></a><br>
                     {{ form_row(registrationForm.agreeTerms, {'label': 'Cochez la case'}) }}
 
