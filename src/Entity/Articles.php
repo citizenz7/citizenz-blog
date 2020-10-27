@@ -73,17 +73,11 @@ class Articles
      */
     private $slug;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=MotsCles::class, mappedBy="articles")
-     */
-    private $motsCles;
-
 
 
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
-        $this->motsCles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -230,38 +224,8 @@ class Articles
         return $this;
     }
 
-
-
     public function __toString() {
         return $this->getTitre();
-    }
-
-    /**
-     * @return Collection|MotsCles[]
-     */
-    public function getMotsCles(): Collection
-    {
-        return $this->motsCles;
-    }
-
-    public function addMotsCle(MotsCles $motsCle): self
-    {
-        if (!$this->motsCles->contains($motsCle)) {
-            $this->motsCles[] = $motsCle;
-            $motsCle->addArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMotsCle(MotsCles $motsCle): self
-    {
-        if ($this->motsCles->contains($motsCle)) {
-            $this->motsCles->removeElement($motsCle);
-            $motsCle->removeArticle($this);
-        }
-
-        return $this;
     }
 
 }
