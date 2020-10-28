@@ -44,15 +44,16 @@
                 </div>
                 <div class="col text-justify">
                     {{ article.contenu | raw }}
+                    <!-- Tags -->
+                    <div class="mt-2 py-2">
+                        {% for tag in article.tags %}
+                            <span class="badge border py-1 px-1"><a class="text-dark" href="{{ path('tags_show', {'slug': tag.slug}) }}">{{ tag.name }}</a></span>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
 
-            <!-- Tags -->
-            <div class="mt-4 py-2 text-right">
-                {% for tag in article.tags %}
-                    <span class="badge border">{{ tag.name }}</span>
-                {% endfor %}
-            </div>
+            
         </article>
 
         {% if is_granted('ROLE_ADMIN') %}
