@@ -2,14 +2,15 @@
 
 namespace App\Form;
 
+use App\Entity\Tags;
 use App\Entity\Articles;
 use Symfony\Component\Form\AbstractType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class ArticlesType extends AbstractType
 {
@@ -23,6 +24,11 @@ class ArticlesType extends AbstractType
             ->add('categorie')
             //->add('auteur')
             ->add('image')
+            ->add('tags', EntityType::class, [
+                'class' => Tags::class,
+                'choice_label' => 'name',
+                'multiple' => true
+            ])
         ;
     }
 

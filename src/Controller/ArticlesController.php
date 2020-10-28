@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Tags;
 use App\Entity\Articles;
 use App\Form\ArticlesType;
 use App\Entity\Commentaires;
@@ -22,13 +23,21 @@ class ArticlesController extends AbstractController
 {
     /**
      * @Route("/", name="articles_index", methods={"GET"})
-     * @param ArticlesRepository $articlesRepository
-     * @return Response
+     * @param Request $request
+     * @param PaginatorInterface $paginator
      */
-    public function index(ArticlesRepository $articlesRepository): Response
+    public function index(Request $request, PaginatorInterface $paginator)
     {
+        $donnees = $this->getDoctrine()->getRepository(Articles::class)->findBy([],['id' => 'ASC']);
+
+        $articles = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            5 // Nombre de résultats par page
+        );
+
         return $this->render('articles/index.html.twig', [
-            'articles' => $articlesRepository->findAll(),
+            'articles' => $articles,
         ]);
     }
 
@@ -116,6 +125,9 @@ class ArticlesController extends AbstractController
      */
     public function edit(Request $request, Articles $article): Response
     {
+        // $tag = new Tags();
+        // $article->addTag($tag);
+
         $form = $this->createForm(ArticlesType::class, $article);
         $form->handleRequest($request);
 

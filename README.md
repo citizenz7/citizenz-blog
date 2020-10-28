@@ -27,6 +27,7 @@ En cours de développement...
 - affichage dans la sidebar des articles populaires (3 articles les plus lus/consultés)
 - affichage dans la sidebar des 3 derniers commentaires
 - password confirm dans l'inscription
+- mots clés (tags)
 
 ### A faire
 - upload d'images
@@ -40,4 +41,3 @@ En cours de développement...
 - section "A lire aussi" : bas d'article (show) - 3 articles avec mêmes tags
 - afficher tous les articles par Tags
 - afficher tous les articles par Catégorie
-- mots clés (tags)

@@ -8,6 +8,8 @@
     text-align: center;
 }*/
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400;1,800&display=swap');
+
 html {
     position: relative;
     min-height: 100%;
@@ -16,6 +18,8 @@ html {
 body {
     margin-bottom: 170px;
     /* Margin bottom by footer height */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
 }
 
 footer {
@@ -45,6 +49,11 @@ footer #footer-resources i {
 
 .text-meta2 {
     font-size: 0.9rem;
+}
+
+.text-sub-meta {
+    font-size: 0.62rem;
+    color: grey;
 }
 
 /* Bootstrap real BG colors */

@@ -6,36 +6,52 @@
 
 {% block body %}
 <div class="row pb-5">
-    <div class="col-sm-8 mt-3 pr-5 text-justify">
+    <div class="col-sm-9 mt-3 pr-5">
         <article class="mb-4 pb-3">
-            <h3 class="text-danger font-weight-bold"><a
-                    href="{{ path('categories_show', {'slug': article.categorie.slug}) }}">{{ article.categorie.titre }}</a>
-            </h3>
-            <h1 class="font-weight-bold">{{ article.titre }}</h1>
-            <div class="text-muted bg-light px-2 py-1 text-meta">
-                Posté le {{ article.createdAt | date("d/m/Y") }} à {{ article.createdAt | date("H:i") }},
-                {% if article.updatedAt != null %}
-                mis à jour le {{ article.updatedAt | date("d/m/Y") }} à {{ article.updatedAt | date("H:i") }},
-                {% endif %}
-                par {{ article.auteur.username }} <span class="badge badge-primary ml-2">Lectures :
-                    {{ article.vues }}</span>
+            <h4 class="text-danger font-weight-bold">
+                <a href="{{ path('categories_show', {'slug': article.categorie.slug}) }}">{{ article.categorie.titre }}</a>
+            </h4>
+            <h1 class="font-weight-bold text-justify">{{ article.titre }}</h1>
+
+            <div class="mt-3">
+                <img src="{{ article.image }}" alt="{{ article.titre }}" class="mr-3 my-1 img-fluid">
             </div>
-            <div class="mt-2">
-                <img src="{{ article.image }}" alt="{{ article.titre }}" class="float-left mr-3 my-1 img-fluid"
-                    style="max-width:350px; width:100%;">
-                <p>{{ article.contenu | raw }}</p>
+
+            <div class="row mt-3">
+                <div class="col-3 text-meta text-center pt-2">
+                    <hr class="mt-0">
+                    <span class="text-sub-meta">Posté le </span> {{ article.createdAt | date("d/m/Y") }}, à {{ article.createdAt | date("H:i") }}<br>
+                    {% if article.updatedAt != null %}
+                        <span class="text-sub-meta">Mis à jour le </span> {{ article.updatedAt | date("d/m/Y") }} à {{ article.updatedAt | date("H:i") }}
+                    {% endif %}
+                    <br>
+                    <img src="{{ article.auteur.avatar }}" alt="{{ article.auteur.username }}" class="img-fluid mt-2" style="max-width:80px; width:100%;">
+                    <br>
+                    <span class="text-sub-meta">Auteur :</span>
+                    {{ article.auteur.username }} 
+                    <p class="mt-2">
+                        <span class="badge badge-primary text-meta">Lectures : {{ article.vues }}</span>
+                    </p>
+                    <hr>
+ 
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v8.0" nonce="cjDMoHtB"></script>
+                    <div class="fb-share-button" data-href="{{ article.slug }}" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ article.slug }}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
+
+                    <div class="mt-3"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+                    <hr>
+                </div>
+                <div class="col text-justify">
+                    {{ article.contenu | raw }}
+                </div>
             </div>
-            <div class="mt-4 py-2 border-top border-bottom lead">
-                Tags :
-                <span class="badge badge-secondary rounded py-1 px-2 mx-1">
-                    <a href="#" class="text-white text-decoration-none text-meta">Debian</a>
-                </span>
-                <span class="badge badge-secondary rounded py-1 px-2 mx-1">
-                    <a href="#" class="text-white text-decoration-none text-meta">Nginx</a>
-                </span>
-                <span class="badge badge-secondary rounded py-1 px-2 mx-1">
-                    <a href="#" class="text-white text-decoration-none text-meta">Web</a>
-                </span>
+
+            <!-- Tags -->
+            <div class="mt-4 py-2 text-right">
+                {% for tag in article.tags %}
+                    <span class="badge badge-secondary">{{ tag.name }}</span>
+                {% endfor %}
             </div>
         </article>
 

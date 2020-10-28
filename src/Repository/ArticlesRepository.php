@@ -3,9 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Articles;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use phpDocumentor\Reflection\Types\Integer;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Articles|null find($id, $lockMode = null, $lockVersion = null)
@@ -61,6 +62,7 @@ class ArticlesRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
 
     // /**
     //  * @return Articles[] Returns an array of Articles objects

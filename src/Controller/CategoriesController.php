@@ -57,7 +57,7 @@ class CategoriesController extends AbstractController
      * @param Categories $categorie
      * @return Response
      */
-    public function show(Categories $categorie): Response
+    public function show(Categories $categorie, CategoriesRepository $repoCat): Response
     {
         return $this->render('categories/show.html.twig', [
             'categorie' => $categorie,

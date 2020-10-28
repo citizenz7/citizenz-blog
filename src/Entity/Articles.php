@@ -73,11 +73,16 @@ class Articles
      */
     private $slug;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Tags::class, inversedBy="articles")
+     */
+    private $tags;
 
 
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -226,6 +231,34 @@ class Articles
 
     public function __toString() {
         return $this->getTitre();
+    }
+
+    /**
+     * @return Collection|Tags[]
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function addTag(Tags $tag): self
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags[] = $tag;
+            $tag->addArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tags $tag): self
+    {
+        if ($this->tags->contains($tag)) {
+            $this->tags->removeElement($tag);
+            $tag->removeArticle($this);
+        }
+
+        return $this;
     }
 
 }

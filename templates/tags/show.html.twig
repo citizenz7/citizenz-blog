@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tags{% endblock %}
+
+{% block body %}
+    <h2>Tags</h2>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tag.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ tag.name }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ tag.slug }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-sm btn-primary2" href="{{ path('tags_index') }}">Retour liste des tags</a>
+
+    <a class="btn btn-sm btn-info2"  href="{{ path('tags_edit', {'id': tag.id}) }}">Editer</a>
+
+    {{ include('tags/_delete_form.html.twig') }}
+{% endblock %}

@@ -32,6 +32,7 @@ class CategoriesRepository extends ServiceEntityRepository
         ;
     }
 
+
     // /**
     //  * @return Categories[] Returns an array of Categories objects
     //  */

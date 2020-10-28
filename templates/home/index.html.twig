@@ -5,7 +5,7 @@
 {% block body %}
 
 <div class="row">
-    <div class="col-sm-8 mt-3">
+    <div class="col-sm-9 mt-3">
         {% for article in articles %}
         <article class="pr-4 mb-4 pb-3 border-bottom text-justify ">
             <h4 class="text-danger"><a href="{{ path('categories_show', {'slug': article.categorie.slug}) }}">{{ article.categorie.titre }}</a></h4>

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer le tag{% endblock %}
+
+{% block body %}
+    <h2>Editer le tag</h2>
+
+    {{ include('tags/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a class="btn btn-sm btn-primary2" href="{{ path('tags_index') }}">Retour à la liste des tags</a>
+
+    {{ include('tags/_delete_form.html.twig') }}
+{% endblock %}

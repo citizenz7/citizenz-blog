@@ -4,9 +4,13 @@
 
 {% block title %}Rédaction d'un nouvel article{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+{% endblock %}
+
 {% block body %}
 <div class="row pb-5">
-    <div class="col-sm-8 mt-3 pr-5 text-justify">
+    <div class="col-sm-9 mt-3 pr-5 text-justify">
         <h2>Nouvel article</h2>
 
         {{ include('articles/_form.html.twig') }}
@@ -19,4 +23,11 @@
 
 </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script>
+        $('select').select2();
+    </script>
 {% endblock %}

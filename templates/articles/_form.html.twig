@@ -4,6 +4,7 @@
     {{ form_row(form.contenu, {'label': 'Contenu'}) }}
     {{ form_row(form.categorie, {'label': 'Catégorie'}) }}
     {{ form_row(form.image, {'label': 'Image', 'attr': {'placeholder': 'Choisissez une image pour l\'article'}}) }}
+    {{ form_rest(form) }}
 
     <button class="btn btn-success mt-3">{{ button_label|default('Enregistrer') }}</button> 
     <button type="reset" class="btn btn-secondary mt-3">Annuler</button>
