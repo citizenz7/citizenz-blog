@@ -1,7 +1,7 @@
 # citizenz-blog
 En cours de développement...
 
-### FAIT
+### CE QUI EST FAIT
 #### ARTICLES
 - articles (détection du user qui poste l'article)
 - slug Articles
@@ -19,7 +19,7 @@ En cours de développement...
 - slug Categories
 - afficher tous les articles par Catégorie
 
-### Commentaires
+#### Commentaires
 - commentaires sur page SHOW article (détection du user qui poste le commentaire)
 - commentaires : éditer et/ou supprimer son propre commentaire
 
@@ -34,7 +34,7 @@ En cours de développement...
 - 3 derniers commentaires
 - stats (articles, commentaires, membres, lectures)
 
-#### Front & Fonctionalités
+#### Front & Fonctionnalités
 - pagination (KnpPaginatorBundle)
 - CKEditor (textarea)
 - pages d'erreur (prod) : 404, 403, 50x
