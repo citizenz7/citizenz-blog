@@ -22,6 +22,20 @@
             </div>
         {% endif %}
 
+        <hr>
+        Nombre d'articles de la catégorie : {{ categorie.articles | length }}
+        {% for a in categorie.articles %}
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h4>
+                        <a href="{{ path('articles_show', { 'slug': a.slug }) }}">{{ a.titre }}</a>
+                    </h4>
+                    <img src="{{ a.image }}" alt="{{ a.titre }}" class="img-fluid float-left mr-2 mt-1" style="max-width:100px; width:100%;">
+                    {{ a.contenu | slice(0,300) | raw }}
+                </div>
+            </div>
+            
+        {% endfor %}
     </div>
 
     {% block sidebar %}

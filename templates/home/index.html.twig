@@ -15,8 +15,8 @@
                 {% endif %}
             </h1>
             <div class="text-muted py-1">
-                Posté le {{ article.createdAt | date("d/m/Y") }} à
-                {{ article.createdAt | date("H:i") }} par {{ article.auteur.username }}
+                <i class="fas fa-calendar-alt"></i> {{ article.createdAt | date("d/m/Y") }} à
+                {{ article.createdAt | date("H:i") }} <i class="ml-2 fas fa-user-tie"></i> {{ article.auteur.username }}
             </div>
             <div class="mt-2">
                 <img src="{{ article.image }}" alt="{{ article.titre }}" style="max-width: 150px;"

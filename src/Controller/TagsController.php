@@ -49,7 +49,7 @@ class TagsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="tags_show", methods={"GET"})
+     * @Route("/{slug}", name="tags_show", methods={"GET"})
      */
     public function show(Tags $tag): Response
     {
@@ -59,7 +59,7 @@ class TagsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="tags_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="tags_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Tags $tag): Response
     {
