@@ -42,6 +42,7 @@ En cours de développement...
 - à propos
 - formulaire de recherche
 - formulaire de contact
+- flux RSS : articles
 
 
 ### TODO
@@ -54,5 +55,4 @@ En cours de développement...
 - activer/désactiver un article (isEnable (boolean) - admin)
 - activer/désactiver un commentaire (isEnable (boolean) - admin)
 - archives
-- flux RSS : articles
 - section "A lire aussi" : bas d'article (show) - 3 articles avec mêmes tags
