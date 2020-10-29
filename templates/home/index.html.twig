@@ -8,21 +8,28 @@
     <div class="col-sm-9 mt-3">
         {% for article in articles %}
         <article class="pr-4 mb-4 pb-3 border-bottom text-justify ">
-            <h4 class="text-danger"><a href="{{ path('categories_show', {'slug': article.categorie.slug}) }}">{{ article.categorie.titre }}</a></h4>
-            <h1 class="font-weight-bold">{{ article.titre }} 
+            <h5 class="text-danger"><a href="{{ path('categories_show', {'slug': article.categorie.slug}) }}">{{ article.categorie.titre }}</a></h5>
+            <h2 class="font-weight-bold">{{ article.titre }} 
                 {% if article.commentaires is not empty %}
                     <span class="text-meta2 badge badge-primary">{{ article.commentaires | length }}</span>
                 {% endif %}
-            </h1>
+            </h2>
             <div class="text-muted py-1">
                 <i class="fas fa-calendar-alt"></i> {{ article.createdAt | date("d/m/Y") }} à
-                {{ article.createdAt | date("H:i") }} <i class="ml-2 fas fa-user-tie"></i> {{ article.auteur.username }}
+                {{ article.createdAt | date("H:i") }} <i class="ml-2 fas fa-user-tie"></i> {{ article.auteur.username }} 
+            </div>
+            <div>
+                {% if article.tags is not empty %}
+                    {% for tag in article.tags %}
+                        <span class="badge border py-1 px-1"><a class="text-dark" href="{{ path('tags_show', {'slug': tag.slug}) }}">{{ tag.name }}</a></span>
+                    {% endfor %}
+                {% endif %}
             </div>
             <div class="mt-2">
                 <img src="{{ article.image }}" alt="{{ article.titre }}" style="max-width: 150px;"
                     class="float-left mr-3 my-1 img-fluid">
                 <p>{{ article.contenu | slice(0,500) | raw }}...</p>
-                <a href="{{ path('articles_show', { 'slug': article.slug }) }}" class="btn btn-info">Lire la suite</a>
+                <a href="{{ path('articles_show', { 'slug': article.slug }) }}" class="btn btn-info btn-sm">Lire la suite</a>
             </div>
         </article>
         {% endfor %}

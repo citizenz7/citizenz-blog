@@ -3,48 +3,70 @@
 {% block title %}Articles index{% endblock %}
 
 {% block body %}
-    <h1>Articles index</h1>
+<div class="row">
+    <div class="col-sm-9 mt-3">
+        <h2>Articles index</h2>
 
-    <table class="table table-sm">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Contenu</th>
-                <th>Catégorie</th>
-                <th>Créé le</th>
-                <th>Mis à jour le</th>
-                <th>Image</th>
-                <th width="15%">actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles | reverse %}
-            <tr class="text-justify" style="font-size: 13px;">
-                <td>{{ article.id }}</td>
-                <td>{{ article.titre }}</td>
-                <td>{{ article.contenu | slice(0,100) }}...</td>
-                <td>{{ article.categorie.titre }}</td>
-                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td><img src="{{ article.image }}" alt="{{ article.titre }}" class="img-fluid" style="max-width:100px;"></td>
-                <td>
-                    <a class="btn btn-sm btn-primary2" href="{{ path('articles_show', {'slug': article.slug}) }}"><i class="far fa-eye"></i></a>
-                    <a class="btn btn-sm btn-info2" href="{{ path('articles_edit', {'slug': article.slug}) }}"><i class="fas fa-edit"></i></a>
-                    <a class="btn btn-sm btn-secondary2" href="#"><i class="fas fa-eye-slash"></i></a>
-                    {{ include('articles/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">aucun article</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    
-    <div class="pagination justify-content-center px-2">
-        {{ knp_pagination_render(articles) }}
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Contenu</th>
+                    <th>Catégorie</th>
+                    <th>Créé le</th>
+                    <th>MAJ</th>
+                    <th>Image</th>
+                    <th width="15%">actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                <tr class="text-justify" style="font-size: 13px;">
+                    <td>{{ article.id }}</td>
+                    <td>{{ article.titre }}</td>
+                    <td>{{ article.contenu | slice(0,100) }}...</td>
+                    <td>{{ article.categorie.titre }}</td>
+                    <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td><img src="{{ article.image }}" alt="{{ article.titre }}" class="img-fluid"
+                            style="max-width:100px;"></td>
+                    <td>
+                        <table class="table table-sm table-borderless">
+                            <tr>
+                                <td>
+                                    <a class="btn btn-sm btn-primary2"
+                                        href="{{ path('articles_show', {'slug': article.slug}) }}"><i
+                                            class="far fa-eye"></i></a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-info2"
+                                        href="{{ path('articles_edit', {'slug': article.slug}) }}"><i
+                                            class="fas fa-edit"></i></a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-secondary2" href="#"><i class="fas fa-eye-slash"></i></a>
+                                </td>
+                                <td>
+                                    {{ include('articles/_delete_form.html.twig') }}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="pagination justify-content-center px-2">
+            {{ knp_pagination_render(articles) }}
+        </div>
+
     </div>
+    {% block sidebar %}
+        {{ sidebar() }}
+    {% endblock %}
+
+</div>
 
 {% endblock %}

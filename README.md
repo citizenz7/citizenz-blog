@@ -45,9 +45,10 @@ En cours de développement...
 
 
 ### TODO
+- pagination catégories
+- pagination tags
 - upload d'images
 - affichage du nb d'articles par catégorie (sidebar)
-- like sur article (+ ajax)
 - espace d'administration (ADMIN)
 - tri colonnes (notamment dans ADMIN)
 - activer/désactiver un article (isEnable (boolean) - admin)

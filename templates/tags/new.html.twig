@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Tags{% endblock %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Créer un tag{% endblock %}
 
 {% block body %}
-    <h1>Create new Tags</h1>
+<div class="row pb-5">
+    <div class="col-sm-9 mt-3 pr-5 text-justify">
+        <h2>Créer un tag</h2>
 
-    {{ include('tags/_form.html.twig') }}
+        {{ include('tags/_form.html.twig') }}
 
-    <a href="{{ path('tags_index') }}">back to list</a>
+    </div>
+
+    {% block sidebar %}
+        {{ sidebar() }}
+    {% endblock %}
+
+</div>
 {% endblock %}

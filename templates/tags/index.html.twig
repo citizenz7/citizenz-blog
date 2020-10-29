@@ -3,34 +3,57 @@
 {% block title %}Tags index{% endblock %}
 
 {% block body %}
-    <h2>Tags index</h2>
+<div class="row">
+    <div class="col-sm-9 mt-3">
+        <h2>Tags index</h2>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Slug</th>
-                <th>Nb d'articles</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for tag in tags %}
-            <tr>
-                <td>{{ tag.id }}</td>
-                <td>{{ tag.name }}</td>
-                <td>{{ tag.slug }}</td>
-                <td>{{ tag.articles | length }}</td>
-                <td>
-                    <a class="btn btn-sm btn-primary2" href="{{ path('tags_show', {'slug': tag.slug}) }}">Voir</a>
-                    <a class="btn btn-sm btn-info2" href="{{ path('tags_edit', {'slug': tag.slug}) }}">Editer</a>
-                    {{ include('tags/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Slug</th>
+                    <th class="text-center">Nb d'articles</th>
+                    <th width="15%">actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tag in tags %}
+                <tr class="text-justify" style="font-size: 13px;">
+                    <td>{{ tag.id }}</td>
+                    <td>{{ tag.name }}</td>
+                    <td>{{ tag.slug }}</td>
+                    <td class="text-center">{{ tag.articles | length }}</td>
+                    <td>
+                        <table class="table table-sm table-borderless">
+                            <tr>
+                                <td>
+                                    <a class="btn btn-sm btn-primary2"
+                                        href="{{ path('tags_show', {'slug': tag.slug}) }}">Voir</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-info2"
+                                        href="{{ path('tags_edit', {'slug': tag.slug}) }}">Editer</a>
+                                </td>
+                                <td>
+                                    {{ include('tags/_delete_form.html.twig') }}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <a class="btn btn-sm btn-success" href="{{ path('tags_new') }}">Créer un nouveau tag</a>
+        <!-- <div class="pagination justify-content-center px-2">
+        {#{ knp_pagination_render(tags) }0#}
+    </div> -->
+
+    </div>
+    {% block sidebar %}
+    {{ sidebar() }}
+    {% endblock %}
+
+</div>
 {% endblock %}

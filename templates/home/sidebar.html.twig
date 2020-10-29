@@ -8,8 +8,10 @@
                         class="fab fa-linkedin-in px-2 fa-2x"></i></a>
         <a href="https://github.com/citizenz7" target="_blank" class="px-1" style="color:#24292E;"><i
                         class="fab fa-github px-2 fa-2x"></i></a>
+        <a href="#" target="_blank" class="px-1" style="color:#EE802F;">
+                        <i class="fas fa-rss fa-2x"></i></a>
 
-        <h4 class="mt-4 border-bottom">Catégories</h4>
+        <h4 class="mt-4 pt-2 border-bottom">Catégories</h4>
         <ul class="list-group list-group-flush text-meta2">
                 {% for cat in categories %}
                         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -17,7 +19,7 @@
                         </li>
                 {% endfor %}
        
-        <h4 class="mt-4 border-bottom">Articles populaires</h4>
+        <h4 class="mt-4 pt-2 border-bottom">Articles populaires</h4>
         <ul class="list-group list-group-flush text-meta">
                 {% for a in articles %}
                         <li class="list-group-item">
@@ -27,17 +29,17 @@
                 {% endfor %}
         </ul>
 
-        <h4 class="mt-4 border-bottom">Derniers commentaires</h4>
+        <h4 class="mt-4 pt-2 border-bottom">Derniers commentaires</h4>
         <ul class="list-group list-group-flush text-meta">
                 {% for c in commentaires %}
                         <li class="list-group-item">
                                 {{ c.contenu | slice(0,80) | raw }}...,  
-                                <span class="text-muted">par {{ c.username }}, le {{ c.created_at | date("d/m/Y") }}</span>
+                                <span class="text-info">par {{ c.username }}, le {{ c.created_at | date("d/m/Y") }}</span>
                         </li>
                 {% endfor %}
         </ul>
 
-        <h4 class="mt-4 border-bottom">Stats</h4>
+        <h4 class="mt-4 pt-2 border-bottom">Stats</h4>
         <ul class="list-group list-group-flush text-meta2">
                 <li class="list-group-item d-flex justify-content-between align-items-center">Articles
                         <span class="badge badge-success rounded py-1 px-2 ml-5">

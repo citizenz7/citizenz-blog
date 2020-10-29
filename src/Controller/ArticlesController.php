@@ -28,7 +28,7 @@ class ArticlesController extends AbstractController
      */
     public function index(Request $request, PaginatorInterface $paginator)
     {
-        $donnees = $this->getDoctrine()->getRepository(Articles::class)->findBy([],['id' => 'ASC']);
+        $donnees = $this->getDoctrine()->getRepository(Articles::class)->findBy([],['created_at' => 'DESC']);
 
         $articles = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer (ici nos articles)
