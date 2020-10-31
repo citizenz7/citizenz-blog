@@ -35,11 +35,18 @@
         <ul class="list-group list-group-flush text-meta">
                 {% for c in commentaires %}
                         <li class="list-group-item">
-                                {{ c.contenu | slice(0,80) | raw }}..., 
+                                <a href="{{ path('articles_show', { 'slug': c.slug }) }}#c-{{ c.id }}" class="text-dark">{{ c.contenu | slice(0,80) | raw }}...</a></a>, 
                                 <span class="text-info">par {{ c.username }}, le {{ c.created_at | date("d/m/Y") }}</span>
                         </li>
                 {% endfor %}
         </ul>
+
+        <h4 class="mt-4 pt-2 border-bottom">Tags</h4>
+                <span class="px-1">
+                        {% for t in tags %}
+                                <a class="badge border text-dark" href="{{ path('tags_show', {'slug': t.slug}) }}">{{ t.name }}</a>
+                        {% endfor %}
+                </span>
 
         <h4 class="mt-4 pt-2 border-bottom">Stats</h4>
         <ul class="list-group list-group-flush text-meta2">
@@ -51,11 +58,6 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center">Commentaires
                         <span class="badge badge-success rounded py-1 px-2 ml-5">
                                 {{ commentairesAll | length }}
-                        </span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">Membres
-                        <span class="badge badge-success rounded py-1 px-2 ml-5">
-                                {{ users | length }}
                         </span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">Lectures

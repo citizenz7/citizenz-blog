@@ -34,6 +34,8 @@ En cours de développement...
 - articles populaires (3 articles les plus lus/consultés)
 - 3 derniers commentaires
 - stats (articles, commentaires, membres, lectures)
+- nuage de tags dans sidebar
+- flux RSS des articles
 
 #### Front & Fonctionnalités
 - pagination (KnpPaginatorBundle)
@@ -43,17 +45,13 @@ En cours de développement...
 - à propos
 - formulaire de recherche
 - formulaire de contact
-- flux RSS : articles
 - pagination catégories
 - pagination tags
+- seul l'administrateur a les droits pour créer, éditer, supprimer les Tags, Articles, Categories. Les commentaires peuvent être supprimés par leur auteur ou l'administrateur.
 
 
 ### TODO
 - upload d'images
-- nuage de tags dans sidebar
 - archives
-- user : page publique pour le pseudo, nb d'articles et de commentaires + liens
 - affichage du nb d'articles par catégorie (sidebar)
-- espace d'administration (ADMIN)
-- tri colonnes (notamment dans ADMIN)
-- section "A lire aussi" : bas d'article (show) - 3 articles avec mêmes tags
+- tri colonnes (Admin)

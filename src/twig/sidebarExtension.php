@@ -5,6 +5,7 @@ namespace App\twig;
 use App\Repository\ArticlesRepository;
 use App\Repository\CategoriesRepository;
 use App\Repository\CommentairesRepository;
+use App\Repository\TagsRepository;
 use App\Repository\UsersRepository;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
@@ -33,11 +34,15 @@ class sidebarExtension extends AbstractExtension
     private $usersRepository;
 
     /**
+     * @var TagsRepository
+     */
+    private $tagsRepository;
+
+
+    /**
      * @var Environnement
      */
     private $twig;
-
-
 
 
     public function __construct(
@@ -45,6 +50,7 @@ class sidebarExtension extends AbstractExtension
         CommentairesRepository $commentairesRepository, 
         CategoriesRepository $categoriesRepository,
         UsersRepository $usersRepository,
+        TagsRepository $tagsRepository,
         Environment $twig
     )
     {
@@ -52,6 +58,7 @@ class sidebarExtension extends AbstractExtension
         $this->commentairesRepository = $commentairesRepository;
         $this->categoriesRepository = $categoriesRepository;
         $this->usersRepository = $usersRepository;
+        $this->tagsRepository = $tagsRepository;
         $this->twig = $twig;
     }
 
@@ -71,6 +78,7 @@ class sidebarExtension extends AbstractExtension
         $categories = $this->categoriesRepository->sidebarCategories();
         $users = $this->usersRepository->findAll();
         $vues = $this->articlesRepository->totalVues();
+        $tags = $this->tagsRepository->findAll();
 
         // return $this->twig->render('home/sidebar.html.twig', [
         //     'articles' => $articles,
@@ -83,6 +91,6 @@ class sidebarExtension extends AbstractExtension
         // ]);
 
         return $this->twig->render('home/sidebar.html.twig', 
-            compact('articles', 'articlesAll', 'commentaires', 'commentairesAll', 'categories', 'users', 'vues'));
+            compact('articles', 'articlesAll', 'commentaires', 'commentairesAll', 'categories', 'users', 'vues', 'tags'));
     }
 }

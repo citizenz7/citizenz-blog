@@ -5,8 +5,35 @@
 {% block title %}Nouvelle catégorie{% endblock %}
 
 {% block body %}
-    <h1>Créer une nouvelle catégorie</h1>
 
-    {{ include('categories/_form.html.twig') }}
+<div class="row">
+    <div class="col-sm-9 mt-3">
 
+        {% if is_granted('ROLE_ADMIN') %}
+
+            <h2>Créer une nouvelle catégorie</h2>
+
+            {{ include('categories/_form.html.twig') }}
+
+            {% else %}
+            <div class="mt-1 pt-4 pb-2 px-3 alert alert-danger text-center">
+                <p>
+                    <i class="fas fa-user-lock fa-5x"></i>
+                </p>
+                <p>
+                    Vous ne pouvez pas accéder à cette page !
+                </p>
+                <p>
+                    <a class="btn btn-primary2" href="{{ path('home') }}"><i class="fas fa-home"></i> Retourner à
+                        l'accueil</a>
+                </p>
+            </div>
+
+        {% endif %}
+    </div>
+    {% block sidebar %}
+        {{ sidebar() }}
+    {% endblock %}
+
+</div>
 {% endblock %}

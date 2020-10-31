@@ -8,7 +8,25 @@
 
 <div class="row pb-5">
     <div class="col-sm-8 mt-3 pr-5 text-justify">
+        {% if is_granted('ROLE_ADMIN') %}
+
         {{ include('categories/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+        {% else %}
+        <div class="mt-1 pt-4 pb-2 px-3 alert alert-danger text-center">
+            <p>
+                <i class="fas fa-user-lock fa-5x"></i>
+            </p>
+            <p>
+                Vous ne pouvez pas accéder à cette page !
+            </p>
+            <p>
+                <a class="btn btn-primary2" href="{{ path('home') }}"><i class="fas fa-home"></i> Retourner à
+                    l'accueil</a>
+            </p>
+        </div>
+
+        {% endif %}
     </div>
 
     {% block sidebar %}

@@ -9,6 +9,7 @@
         <h2>Tag : {{ tag.name }}</h2>
         <hr>
         Nombre d'articles du tag : {{ tag.articles | length }}
+    
         {% for t in tag.articles %}
         <div class="card mt-3">
             <div class="card-body">
@@ -25,9 +26,4 @@
     {% endblock %}
 </div>
 
-<a class="btn btn-sm btn-primary2" href="{{ path('tags_index') }}">Retour liste des tags</a>
-
-<a class="btn btn-sm btn-info2" href="{{ path('tags_edit', {'slug': tag.slug}) }}">Editer</a>
-
-{{ include('tags/_delete_form.html.twig') }}
 {% endblock %}

@@ -5,18 +5,19 @@
 {% block title %}Réinitialisation du mot de passe{% endblock %}
 
 {% block body %}
-<div class="row pb-5">
-    <div class="col-sm-9 mt-3 pr-5 text-justify">
-        <h2>Réinitialisez votre mot de passe</h2>
+    <div class="row pb-5">
+        <div class="col-sm-9 mt-3 pr-5 text-justify">
+            <h2>Réinitialisez votre mot de passe</h2>
 
-        {{ form_start(resetForm) }}
-            {{ form_row(resetForm.plainPassword) }}
-            <button class="btn btn-primary">Réinitialisation du mot de passe</button>
-        {{ form_end(resetForm) }}
+            {{ form_start(resetForm) }}
+                {{ form_row(resetForm.plainPassword) }}
+                <button class="btn btn-primary">Réinitialisation du mot de passe</button>
+            {{ form_end(resetForm) }}
 
+        </div>
+
+        {% block sidebar %}
+            {{ sidebar() }}
+        {% endblock %}
     </div>
-
-    {% include('home/sidebar.html.twig') %}
-
-</div>
 {% endblock %}

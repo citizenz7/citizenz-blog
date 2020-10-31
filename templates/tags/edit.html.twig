@@ -1,13 +1,37 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
 {% block title %}Editer le tag{% endblock %}
 
 {% block body %}
-    <h2>Editer le tag</h2>
+<div class="row">
+    <div class="col-sm-9 mt-3">
 
-    {{ include('tags/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+        {% if is_granted('ROLE_ADMIN') %}
+            <h2>Editer le tag</h2>
 
-    <a class="btn btn-sm btn-primary2" href="{{ path('tags_index') }}">Retour à la liste des tags</a>
+            {{ include('tags/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    {{ include('tags/_delete_form.html.twig') }}
+        {% else %}
+            <div class="mt-4 pt-4 pb-2 px-3 alert alert-danger text-center">
+                <p>
+                    <i class="fas fa-user-lock fa-5x"></i>
+                </p>
+                <p>
+                    Vous ne pouvez pas accéder à cette page !
+                </p>
+                <p>
+                    <a class="btn btn-primary2" href="{{ path('home') }}"><i class="fas fa-home"></i> Retourner à
+                        l'accueil</a>
+                </p>
+            </div>
+        {% endif %}
+
+    </div>
+    {% block sidebar %}
+        {{ sidebar() }}
+    {% endblock %}
+
+</div>
 {% endblock %}

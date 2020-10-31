@@ -9,7 +9,7 @@
     <div class="col-sm-4 card px-5 py-4">
 
         {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
         {% endfor %}
 
         <div class="text-center"><h2>S'enregister</h2></div>

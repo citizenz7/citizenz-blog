@@ -9,23 +9,38 @@
 {% endblock %}
 
 {% block body %}
-<div class="row pb-5">
-    <div class="col-sm-9 mt-3 pr-5 text-justify">
-        <h2>Editer l'article : {{ article.titre }}</h2>
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="row pb-5">
+            <div class="col-sm-9 mt-3 pr-5 text-justify">
+                <h2>Editer l'article : {{ article.titre }}</h2>
 
-        {{ include('articles/_form.html.twig', {'button_label': 'Enregistrer'}) }}
-    </div>
+                {{ include('articles/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+            </div>
 
-    {% block sidebar %}
-        {{ sidebar() }}
-    {% endblock %}
+            {% block sidebar %}
+                {{ sidebar() }}
+            {% endblock %}
 
-</div>
+        </div>
+    {% else %}
+        <div class="mt-4 pt-4 pb-2 px-3 alert alert-danger text-center">
+            <p>
+                <i class="fas fa-user-lock fa-5x"></i>
+            </p>
+            <p>
+                Vous ne pouvez pas accéder à cette page !
+            </p>
+            <p>
+                <a class="btn btn-primary2" href="{{ path('home') }}"><i class="fas fa-home"></i> Retourner à l'accueil</a>
+            </p>
+        </div>
+    {% endif %}
+    
 {% endblock %}
 
 {% block javascripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-    <script>
-        $('select').select2();
-    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script>
+    $('select').select2();
+</script>
 {% endblock %}

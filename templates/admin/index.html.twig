@@ -3,26 +3,33 @@
 {% block title %}citizenz.info : Admin{% endblock %}
 
 {% block body %}
-<div class="row pb-5">
-   <div class="col-sm-9 mt-3 pr-5 text-justify">
-      <h1>Administration</h1>
-      <ul>
-         <li>Tous les articles (pagination 7)</li>
-         <li>Créer un nouvel article</li>
-         <li>Toutes les catégories</li>
-         <li>Créer une nouvelle catégorie</li>
-         <li>Medias : images ?</li>
-         <li>Tous les commentaires + gestion ?</li>
-         <li>Tous les users + gestion</li>
-         <li>Statistiques détaillées</li>
-      </ul>
 
-   </div>
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="row pb-5">
+        <div class="col-sm-9 mt-3 pr-5 text-justify">
+            <h1>Administration</h1>
 
-   {% block sidebar %}
-      {{ sidebar() }}
-   {% endblock %}
 
-</div>
+        </div>
+
+        {% block sidebar %}
+            {{ sidebar() }}
+        {% endblock %}
+
+        </div>
+
+    {% else %}
+        <div class="mt-4 pt-4 pb-2 px-3 alert alert-danger text-center">
+            <p>
+                <i class="fas fa-user-lock fa-5x"></i>
+            </p>
+            <p>
+                Vous ne pouvez pas accéder à cette page !
+            </p>
+            <p>
+                <a class="btn btn-primary2" href="{{ path('home') }}"><i class="fas fa-home"></i> Retourner à l'accueil</a>
+            </p>
+        </div>
+    {% endif %}
 
 {% endblock %}
