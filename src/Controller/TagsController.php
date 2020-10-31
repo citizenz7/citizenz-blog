@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Tags;
 use App\Form\TagsType;
 use App\Repository\TagsRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/tags")
@@ -18,10 +19,24 @@ class TagsController extends AbstractController
     /**
      * @Route("/", name="tags_index", methods={"GET"})
      */
-    public function index(TagsRepository $tagsRepository): Response
+    // public function index(TagsRepository $tagsRepository): Response
+    // {
+    //     return $this->render('tags/index.html.twig', [
+    //         'tags' => $tagsRepository->findAll(),
+    //     ]);
+    // }
+    public function index(Request $request, PaginatorInterface $paginator)
     {
+        $donnees = $this->getDoctrine()->getRepository(Tags::class)->findBy([],['name' => 'ASC']);
+
+        $tags = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            5 // Nombre de résultats par page
+        );
+
         return $this->render('tags/index.html.twig', [
-            'tags' => $tagsRepository->findAll(),
+            'tags' => $tags,
         ]);
     }
 

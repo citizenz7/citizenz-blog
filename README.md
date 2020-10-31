@@ -44,15 +44,16 @@ En cours de développement...
 - formulaire de recherche
 - formulaire de contact
 - flux RSS : articles
+- pagination catégories
+- pagination tags
 
 
 ### TODO
-- pagination catégories
-- pagination tags
 - upload d'images
+- nuage de tags dans sidebar
+- archives
 - user : page publique pour le pseudo, nb d'articles et de commentaires + liens
 - affichage du nb d'articles par catégorie (sidebar)
 - espace d'administration (ADMIN)
 - tri colonnes (notamment dans ADMIN)
-- archives
 - section "A lire aussi" : bas d'article (show) - 3 articles avec mêmes tags
