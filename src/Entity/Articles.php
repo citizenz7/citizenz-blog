@@ -78,6 +78,11 @@ class Articles
      */
     private $tags;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isInactive = false;
+
 
     public function __construct()
     {
@@ -257,6 +262,18 @@ class Articles
             $this->tags->removeElement($tag);
             $tag->removeArticle($this);
         }
+
+        return $this;
+    }
+
+    public function getIsInactive(): ?bool
+    {
+        return $this->isInactive;
+    }
+
+    public function setIsInactive(bool $isInactive): self
+    {
+        $this->isInactive = $isInactive;
 
         return $this;
     }

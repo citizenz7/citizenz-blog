@@ -6,6 +6,7 @@ En cours de développement...
 - articles (détection du user qui poste l'article)
 - slug Articles
 - nb de lectures par article
+- activer/désactiver un article (isInactive (boolean) - admin)
 
 #### Users
 - connexion utilisateur
@@ -49,10 +50,9 @@ En cours de développement...
 - pagination catégories
 - pagination tags
 - upload d'images
+- user : page publique pour le pseudo, nb d'articles et de commentaires + liens
 - affichage du nb d'articles par catégorie (sidebar)
 - espace d'administration (ADMIN)
 - tri colonnes (notamment dans ADMIN)
-- activer/désactiver un article (isEnable (boolean) - admin)
-- activer/désactiver un commentaire (isEnable (boolean) - admin)
 - archives
 - section "A lire aussi" : bas d'article (show) - 3 articles avec mêmes tags

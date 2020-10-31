@@ -1,13 +1,15 @@
 <div class="col-sm-3 mt-3 text-justify">
         <h4 class="border-bottom">Me suivre</h4>
         <a href="https://www.facebook.com/o.prieur58/" target="_blank" class="px-1" style="color:#4267B2;"><i
-                        class="fab fa-facebook-f px-2 fa-2x"></i></a>
+                        class="fab fa-facebook-f px-1 fa-2x"></i></a>
         <a href="https://twitter.com/citizenz58" target="_blank" class="px-1" style="color:#1DA1F2;"><i
-                        class="fab fa-twitter px-2 fa-2x"></i></a>
+                        class="fab fa-twitter px-1 fa-2x"></i></a>
+        <a href="https://discord.gg/neVZtE3" target="_blank" class="px-1" style="color:#7289DA;"><i
+                        class="fab fa-discord px-1 fa-2x"></i></a>                
         <a href="https://www.linkedin.com/in/olivier-prieur/" target="_blank" class="px-1" style="color:#2867B2;"><i
-                        class="fab fa-linkedin-in px-2 fa-2x"></i></a>
+                        class="fab fa-linkedin-in px-1 fa-2x"></i></a>
         <a href="https://github.com/citizenz7" target="_blank" class="px-1" style="color:#24292E;"><i
-                        class="fab fa-github px-2 fa-2x"></i></a>
+                        class="fab fa-github px-1 fa-2x"></i></a>
         <a href="{{ path('rss_feed') }}" target="_blank" class="px-1" style="color:#EE802F;">
                         <i class="fas fa-rss fa-2x"></i></a>
 
@@ -24,7 +26,7 @@
                 {% for a in articles %}
                         <li class="list-group-item">
                                 <a href="{{ path('articles_show', { 'slug': a.slug }) }}" class="text-dark">{{ a.titre }}</a>
-                                <span class="badge badge-info rounded ml-1 px-2">{{ a.vues }}</span>
+                                <span class="badge badge-pill border ml-1 px-2 pb-1">{{ a.vues }}</span>
                         </li>
                 {% endfor %}
         </ul>
@@ -33,7 +35,7 @@
         <ul class="list-group list-group-flush text-meta">
                 {% for c in commentaires %}
                         <li class="list-group-item">
-                                {{ c.contenu | slice(0,80) | raw }}...,  
+                                {{ c.contenu | slice(0,80) | raw }}..., 
                                 <span class="text-info">par {{ c.username }}, le {{ c.created_at | date("d/m/Y") }}</span>
                         </li>
                 {% endfor %}

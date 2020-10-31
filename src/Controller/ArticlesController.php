@@ -2,18 +2,15 @@
 
 namespace App\Controller;
 
-use App\Entity\Tags;
 use App\Entity\Articles;
 use App\Form\ArticlesType;
 use App\Entity\Commentaires;
 use App\Form\CommentaireType;
-use App\Repository\ArticlesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -125,9 +122,6 @@ class ArticlesController extends AbstractController
      */
     public function edit(Request $request, Articles $article): Response
     {
-        // $tag = new Tags();
-        // $article->addTag($tag);
-
         $form = $this->createForm(ArticlesType::class, $article);
         $form->handleRequest($request);
 

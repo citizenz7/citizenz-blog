@@ -7,37 +7,43 @@
     <div class="col-sm-9 mt-3">
         <h2>Articles index</h2>
 
-        <table class="table table-sm">
+        <table class="table">
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Titre</th>
-                    <th>Contenu</th>
-                    <th>Catégorie</th>
+                    <th width="30%">Titre</th>
+                    <th width="20%">Catégorie</th>
                     <th>Créé le</th>
                     <th>MAJ</th>
-                    <th>Image</th>
-                    <th width="15%">actions</th>
+                    <th>Actif</th>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <th width="15%" class="text-center">actions</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody>
                 {% for article in articles %}
-                <tr class="text-justify" style="font-size: 13px;">
+                <tr class="text-justify">
                     <td>{{ article.id }}</td>
                     <td>{{ article.titre }}</td>
-                    <td>{{ article.contenu | slice(0,100) }}...</td>
-                    <td>{{ article.categorie.titre }}</td>
+                    <td class="font-weight-bold">{{ article.categorie.titre }}</td>
                     <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                     <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td><img src="{{ article.image }}" alt="{{ article.titre }}" class="img-fluid"
-                            style="max-width:100px;"></td>
+                    <td>
+                        {% if article.isInactive %}
+                            <span class="text-danger2">non</span>
+                        {% else %}
+                        <span class="text-success">oui</span>
+                        {% endif %}
+                    </td>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <td>
                         <table class="table table-sm table-borderless">
                             <tr>
                                 <td>
                                     <a class="btn btn-sm btn-primary2"
                                         href="{{ path('articles_show', {'slug': article.slug}) }}"><i
-                                            class="far fa-eye"></i></a>
+                                            class="fas fa-glasses"></i></a>
                                 </td>
                                 <td>
                                     <a class="btn btn-sm btn-info2"
@@ -45,14 +51,12 @@
                                             class="fas fa-edit"></i></a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-sm btn-secondary2" href="#"><i class="fas fa-eye-slash"></i></a>
-                                </td>
-                                <td>
                                     {{ include('articles/_delete_form.html.twig') }}
                                 </td>
                             </tr>
                         </table>
                     </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>

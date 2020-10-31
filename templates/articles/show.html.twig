@@ -52,20 +52,15 @@
                     </div>
                 </div>
             </div>
-
-            
         </article>
 
         {% if is_granted('ROLE_ADMIN') %}
-        <div class="row justify-content-sm-center">
-            <div class="col-sm-2 mb-3">
-                <a class="btn btn-sm btn-info" href="{{ path('articles_edit', {'slug': article.slug}) }}">Editer</a>
+        <div class="row d-flex flex-row-reverse">
+            <div class="col-sm-1 mb-3">
+                <a class="btn btn-sm btn-info" href="{{ path('articles_edit', {'slug': article.slug}) }}"><i class="fas fa-edit"></i></a>
             </div>
-            <div class="col-sm-2 mb-3">
+            <div class="col-sm-1 mb-3">
                 {{ include('articles/_delete_form.html.twig') }}
-            </div>
-            <div class="col-sm-2 mb-3">
-                <a class="btn btn-sm btn-secondary" href="#">Désactiver</a>
             </div>
         </div>
         {% endif %}

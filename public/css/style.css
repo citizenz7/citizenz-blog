@@ -56,6 +56,11 @@ footer #footer-resources i {
     color: grey;
 }
 
+/* Bootstrap texts */
+.text-danger2 {
+    color: #c82333;
+}
+
 /* Bootstrap real BG colors */
 .bg-light2 {
     background-color: #f8f9fa !important

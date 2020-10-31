@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Articles;
+use App\Repository\ArticlesRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +19,10 @@ class HomeController extends AbstractController
      * @param PaginatorInterface $paginator
      * @return Response
      */
-    public function index(Request $request, PaginatorInterface $paginator)
+    public function index(ArticlesRepository $repo, Request $request, PaginatorInterface $paginator)
     {
         // Méthode findBy qui permet de récupérer les données avec des critères de filtre et de tri
-        $donnees = $this->getDoctrine()->getRepository(Articles::class)->findBy([],['created_at' => 'desc']);
+        $donnees = $this->getDoctrine()->getRepository(Articles::class)->findBy(['isInactive' => false],['created_at' => 'desc']);
 
         $articles = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer (ici nos articles)
