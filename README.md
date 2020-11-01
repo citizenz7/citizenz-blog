@@ -44,7 +44,7 @@ En cours de développement...
 - CGU
 - à propos
 - formulaire de recherche
-- formulaire de contact
+- formulaire de contact avec captcha (gregwar/captcha-bundle)
 - pagination catégories
 - pagination tags
 - seul l'administrateur a les droits pour créer, éditer, supprimer les Tags, Articles, Categories. Les commentaires peuvent être supprimés par leur auteur ou l'administrateur.

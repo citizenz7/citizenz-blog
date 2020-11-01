@@ -42,6 +42,10 @@
             {{ form_row(our_form.message, {'attr': {'class': 'form-control'}}) }}
         </div>
 
+        <div class="form-group">
+            {{ form_row(our_form.captcha, {'label' : 'Veillez recopier le captcha', 'attr': {'class': 'form-control'}}) }}
+        </div>
+
         <div class="form-group text-right">
             <input type="submit" value="Envoyer" class="btn btn-primary mr-3 mb-4"> <input type="reset" value="Annuler"
                 class="btn btn-secondary mb-4">

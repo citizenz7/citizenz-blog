@@ -1,37 +1,49 @@
 <div class="col-sm-3 mt-3 text-justify">
-        <h4 class="border-bottom">Me suivre</h4>
-        <a href="https://www.facebook.com/o.prieur58/" target="_blank" class="px-1" style="color:#4267B2;"><i
-                        class="fab fa-facebook-f px-1 fa-2x"></i></a>
-        <a href="https://twitter.com/citizenz58" target="_blank" class="px-1" style="color:#1DA1F2;"><i
-                        class="fab fa-twitter px-1 fa-2x"></i></a>
-        <a href="https://discord.gg/neVZtE3" target="_blank" class="px-1" style="color:#7289DA;"><i
-                        class="fab fa-discord px-1 fa-2x"></i></a>                
-        <a href="https://www.linkedin.com/in/olivier-prieur/" target="_blank" class="px-1" style="color:#2867B2;"><i
-                        class="fab fa-linkedin-in px-1 fa-2x"></i></a>
-        <a href="https://github.com/citizenz7" target="_blank" class="px-1" style="color:#24292E;"><i
-                        class="fab fa-github px-1 fa-2x"></i></a>
-        <a href="{{ path('rss_feed') }}" target="_blank" class="px-1" style="color:#EE802F;">
-                        <i class="fas fa-rss fa-2x"></i></a>
+        <div class="bg-light2 text-center mb-2">
+                <span class="lead font-weight-bold">Me suivre</span>
+        </div>
+        <div class="text-center">
+                <a href="https://www.facebook.com/o.prieur58/" target="_blank" class="px-1" style="color:#4267B2;"><i
+                                class="fab fa-facebook-f px-1 fa-2x"></i></a>
+                <a href="https://twitter.com/citizenz58" target="_blank" class="px-1" style="color:#1DA1F2;"><i
+                                class="fab fa-twitter px-1 fa-2x"></i></a>
+                <a href="https://discord.gg/neVZtE3" target="_blank" class="px-1" style="color:#7289DA;"><i
+                                class="fab fa-discord px-1 fa-2x"></i></a>                
+                <a href="https://www.linkedin.com/in/olivier-prieur/" target="_blank" class="px-1" style="color:#2867B2;"><i
+                                class="fab fa-linkedin-in px-1 fa-2x"></i></a>
+                <a href="https://github.com/citizenz7" target="_blank" class="px-1" style="color:#24292E;"><i
+                                class="fab fa-github px-1 fa-2x"></i></a>
+                <a href="{{ path('rss_feed') }}" target="_blank" class="px-1" style="color:#EE802F;">
+                                <i class="fas fa-rss fa-2x"></i></a>
+        </div>
 
-        <h4 class="mt-4 pt-2 border-bottom">Catégories</h4>
+        <div class="bg-light2 text-center mt-4">
+                <span class="lead font-weight-bold">Catégories</span>
+        </div>
         <ul class="list-group list-group-flush text-meta2">
                 {% for cat in categories %}
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <a class="text-dark" href="{{ path('categories_show', {'slug': cat.slug}) }}">{{ cat.titre }}</a>
                         </li>
                 {% endfor %}
+        </ul>
        
-        <h4 class="mt-4 pt-2 border-bottom">Articles populaires</h4>
+        <div class="bg-light2 text-center mt-4">
+                <span class="lead font-weight-bold">Articles populaires</span>
+        </div>
         <ul class="list-group list-group-flush text-meta">
                 {% for a in articles %}
                         <li class="list-group-item">
-                                <a href="{{ path('articles_show', { 'slug': a.slug }) }}" class="text-dark">{{ a.titre }}</a>
+                                <img src="{{ a.image }}" alt="{{ a.titre }}" class="img-fluid float-left mr-2 mt-1 rounded" style="max-width:77px; width: 100%;">
+                                <a href="{{ path('articles_show', { 'slug': a.slug }) }}" class="text-dark">{{ a.titre | slice(0,45) }}...</a>
                                 <span class="badge badge-pill border ml-1 px-2 pb-1">{{ a.vues }}</span>
                         </li>
                 {% endfor %}
         </ul>
 
-        <h4 class="mt-4 pt-2 border-bottom">Derniers commentaires</h4>
+        <div class="bg-light2 text-center mt-4">
+                <span class="lead font-weight-bold">Derniers commentaires</span>
+        </div>
         <ul class="list-group list-group-flush text-meta">
                 {% for c in commentaires %}
                         <li class="list-group-item">
@@ -41,14 +53,18 @@
                 {% endfor %}
         </ul>
 
-        <h4 class="mt-4 pt-2 border-bottom">Tags</h4>
-                <span class="px-1">
-                        {% for t in tags %}
-                                <a class="badge border text-dark" href="{{ path('tags_show', {'slug': t.slug}) }}">{{ t.name }}</a>
-                        {% endfor %}
-                </span>
+        <div class="bg-light2 text-center mt-4 mb-2">
+                <span class="lead font-weight-bold">Tags</span>
+        </div>
+        <span class="px-1">
+                {% for t in tags %}
+                        <a class="badge border text-dark" href="{{ path('tags_show', {'slug': t.slug}) }}">{{ t.name }}</a>
+                {% endfor %}
+        </span>
 
-        <h4 class="mt-4 pt-2 border-bottom">Stats</h4>
+        <div class="bg-light2 text-center mt-4 mb-2">
+                <span class="lead font-weight-bold">Stats</span>
+        </div>
         <ul class="list-group list-group-flush text-meta2">
                 <li class="list-group-item d-flex justify-content-between align-items-center">Articles
                         <span class="badge badge-success rounded py-1 px-2 ml-5">

@@ -48,7 +48,7 @@ class ArticlesRepository extends ServiceEntityRepository
             //->setParameter('val', $value)
             ->orderBy('a.vues', 'DESC')
             ->setMaxResults(3)
-            ->select('a.titre', 'a.slug', 'a.vues')
+            ->select('a.titre', 'a.slug', 'a.image', 'a.vues')
             ->getQuery()
             ->getResult()
         ;
