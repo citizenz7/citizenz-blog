@@ -101,21 +101,24 @@
                     {% else %}
                     <img class="img-fluid" src="{{ asset('images/avatar.png') }}" alt="{{ commentaire.auteur }}">
                     {% endif %}
-                    <p class="text-meta">
-                        {{ commentaire.auteur }}<br>
-                        le {{ commentaire.createdAt | date('d/m/y') }} à {{ commentaire.createdAt | date('H:i') }}
+                    <p class="text-meta0">
+                        <span class="font-weight-bold">{{ commentaire.auteur }}</span>
+                        <br>
+                        {{ commentaire.createdAt | date('d/m/y') }} à {{ commentaire.createdAt | date('H:i') }}
                     </p>
                 </div>
-                <div class="col py-2">
-                    <p>{{ commentaire.contenu | nl2br | raw }}</p>
-                    <p class="text-right">
+
+                <div class="col py-2 text-meta">
+                    <p class="text-justify">{{ commentaire.contenu | nl2br | raw }}</p>
+                    <div class="text-right">
                         {% if app.user %}
                             {% if (app.user.username == commentaire.auteur) or (is_granted('ROLE_ADMIN')) %}
                                 {{ include('commentaires/_delete_form.html.twig') }}
                             {% endif %}
                         {% endif %}
-                    </p>
+                    </div>
                 </div>
+
             </div>
             {% endfor %}
         </section>

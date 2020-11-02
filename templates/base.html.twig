@@ -31,7 +31,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
+        <div class="container py-1">
             <img class="img-fluid float-left" style="max-width: 30px; width: 100%;"
                 src="{{ asset('images/citizenz.jpg') }}" alt="citizenz.info">
             <a class="navbar-brand font-weight-bold" href="{{ path('home') }}">citizenz.info</a>
@@ -64,20 +64,19 @@
                     </li>
                 </ul>
                 {% if app.user %}
-                <div class="text-white">
-                    Bienvenue <a class="text-white"
-                        href="{{ path('users_show', {'id': app.user.id}) }}">{{ app.user.username }}</a> |
-                    <a href="{{ path('app_logout') }}" class="text-white">Déconnexion</a>
-                    {% else %}
-                    <a href="{{ path('app_register') }}" class="text-white pr-4">S'enregistrer</a> <a
-                        href="{{ path('app_login') }}" class="text-white">Connexion</a>
-                </div>
+                    <div class="text-white">
+                        Bienvenue <a class="text-white" href="{{ path('users_show', {'id': app.user.id}) }}">{{ app.user.username }} <i class="fas fa-user"></i></a> |
+                        <a href="{{ path('app_logout') }}" class="text-white">Déconnexion</a>
+                {% else %}
+                    <a href="{{ path('app_register') }}" class="text-white pr-4">S'enregistrer</a> 
+                    <a href="{{ path('app_login') }}" class="text-white">Connexion</a>
+                    </div>
                 {% endif %}
 
             </div>
         </div>
     </nav>
-    <div class="container mt-4 mb-5 pt-5 pb-5">
+    <div class="container my-5 py-5">
         {% block body %}{% endblock %}
     </div>
 

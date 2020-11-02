@@ -14,20 +14,19 @@
                     <p>
                         Votre rôle: {#{ user.roles ? user.roles|json_encode : '' }#}
                         {% if user.roles|json_encode == '["ROLE_ADMIN","ROLE_USER"]' %}
-                        <span class="text-danger">Administrateur</span>
+                            <span class="text-danger">Administrateur</span>
                         {% else %}
-                        <span class="text-info">Utilisateur</span>
+                            <span class="text-info">Utilisateur</span>
                         {% endif %}
                     </p>
-                    <p>
-                        Votre adresse e-mail : {{ user.email }}
-                    </p>
-                    <p>
-                        Votre mot de passe : <a href="#">demander un nouveau mot de passe</a>
-                    </p>
-                    <p>
-                        <a class="btn btn-primary" href="{{ path('users_edit', {'id': user.id}) }}">Editer votre profil</a>
-                    </p>
+
+                    {% if user.articles is not empty %}
+                        <p>Nombre d'articles postés : {{ user.articles | length }}</p>
+                    {% endif %}
+
+                    <p>Votre adresse e-mail : {{ user.email }}</p>
+                    <p>Votre mot de passe : <a href="#">demander un nouveau mot de passe</a></p>
+                    <p><a class="btn btn-primary" href="{{ path('users_edit', {'id': user.id}) }}">Editer votre profil</a></p>
 
                     {# 
                         On affiche la partie Admin seulement si la personne connectée

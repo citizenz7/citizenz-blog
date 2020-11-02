@@ -13,7 +13,11 @@
             <div class="text-muted py-1">
                 <i class="far fa-clock"></i> {{ article.createdAt | date("d/m/Y") }} à
                 {{ article.createdAt | date("H:i") }} <i class="ml-2 fas fa-user-tie"></i> {{ article.auteur.username }} 
-                <i class="fas fa-comments ml-2"></i> {{ article.commentaires | length }} 
+                {% if article.commentaires is not empty %}
+                    <i class="fas fa-comments ml-2"></i> {{ article.commentaires | length }} 
+                {% else %}
+                    <i class="far fa-comment ml-2"></i> {{ article.commentaires | length }}
+                {% endif %}
                 <i class="far fa-eye ml-2"></i> {{ article.vues }}
             </div>
             <div>
