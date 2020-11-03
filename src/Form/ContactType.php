@@ -26,7 +26,11 @@ class ContactType extends AbstractType
                 'label' => 'Votre message',
                 'attr' => ['rows' => 8],
             ])
-            ->add('captcha', CaptchaType::class)
+            ->add('captcha', CaptchaType::class, [
+                'attr' => [
+                    'style' => 'width: 200px'
+                ]
+            ])
         ;
     }
 

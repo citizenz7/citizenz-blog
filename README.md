@@ -48,10 +48,9 @@ En cours de développement...
 - pagination catégories
 - pagination tags
 - seul l'administrateur a les droits pour créer, éditer, supprimer les Tags, Articles, Categories. Les commentaires peuvent être supprimés par leur auteur ou l'administrateur.
+- variables globales dans config/packages/twig.yaml
+- pas d'upload d'images : les images sont liens vers Pixabay
 
 
 ### TODO
-- upload d'images
-- archives
-- affichage du nb d'articles par catégorie (sidebar)
-- tri colonnes (Admin)
+- système d'archives

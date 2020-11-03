@@ -37,7 +37,7 @@ class SearchController extends AbstractController
         $articles = $paginator->paginate(
             $donnees, // Doctrine Query, not results
             $request->query->getInt('page', 1), // Define the page parameter
-            4 // Items per page
+            10 // Items per page
         );
 
         return $this->render('search/index.html.twig', [

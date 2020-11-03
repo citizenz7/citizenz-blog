@@ -53,7 +53,7 @@ class Articles
     private $auteur;
 
     /**
-     * @ORM\OneToMany(targetEntity=Commentaires::class, mappedBy="article")
+     * @ORM\OneToMany(targetEntity=Commentaires::class, mappedBy="article", orphanRemoval=true)
      */
     private $commentaires;
 

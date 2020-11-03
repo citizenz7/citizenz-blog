@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}citizenz.info : blog Geek & Libre{% endblock %}</title>
+    <title>{% block title %}{{ site_url}}: blog Geek & Libre{% endblock %}</title>
 
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/icons/apple-icon-57x57.png') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('images/icons/apple-icon-60x60.png') }}">
@@ -33,8 +33,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container py-1">
             <img class="img-fluid float-left" style="max-width: 30px; width: 100%;"
-                src="{{ asset('images/citizenz.jpg') }}" alt="citizenz.info">
-            <a class="navbar-brand font-weight-bold" href="{{ path('home') }}">citizenz.info</a>
+                src="{{ asset('images/citizenz.jpg') }}" alt="{{ site_url }}">
+            <a class="navbar-brand font-weight-bold" href="{{ path('home') }}">{{ site_url }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
                 aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -85,7 +85,7 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <span>&copy; 2020 citizenz.info | <a href="{{ path('cgu') }}" class="text-white">CGU</a> | <a
+                    <span>&copy; 2020 {{ site_url }} | <a href="{{ path('cgu') }}" class="text-white">CGU</a> | <a
                             href="{{ path('admin') }}" class="text-white">Administration</a><br>
                         <a class="text-white" href="{{ path('home') }}"><i class="fas fa-home"></i> Accueil</a> |
                         <a class="text-white" href="{{ path('apropos') }}"><i class="fas fa-info"></i> A Propos</a> |
