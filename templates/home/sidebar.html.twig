@@ -58,7 +58,9 @@
         </div>
         <span class="px-1">
                 {% for t in tags %}
-                        <a class="badge border text-dark" href="{{ path('tags_show', {'slug': t.slug}) }}">{{ t.name }}</a>
+                        {% if t.articles is not empty %}
+                                <a class="badge border text-dark" href="{{ path('tags_show', {'slug': t.slug}) }}">{{ t.name }}</a>
+                        {% endif %}
                 {% endfor %}
         </span>
 

@@ -1,5 +1,7 @@
 # citizenz-blog
-En cours de développement...
+Statut : Fonctionnel - Quelques options et fonctionnalités à retravailler
+
+## Phase : test
 
 ### CE QUI EST FAIT
 #### ARTICLES
