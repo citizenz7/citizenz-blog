@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Rss\Xml;
+use App\Rss\Rss;
 use App\Entity\Articles;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,7 +22,7 @@ class RssController extends AbstractController
 
         $response = new Response();
         $response->headers->set("Content-type", "text/xml");
-        $response->setContent(Xml::generate($articles));
+        $response->setContent(Rss::generate($articles));
         return $response;
 
     }

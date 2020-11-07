@@ -2,7 +2,7 @@
 
 namespace App\Rss;
 
-class Xml
+class Rss
 {
     public static function generate($articles)
     {
