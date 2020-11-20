@@ -28,8 +28,7 @@
                 {% endif %}
             </div>
             <div class="mt-2">
-                <img src="{{ article.image }}" alt="{{ article.titre }}" style="max-width: 180px; width: 100%;"
-                    class="float-left mr-3 my-1 img-fluid">
+                <img src="{{ article.image }}" alt="{{ article.titre }}" style="max-width: 150px;" class="float-left mr-4 my-1 img-fluid">
                 <p>{{ article.contenu | slice(0,500) | raw }}...</p>
                 <div class="text-right"><a href="{{ path('articles_show', { 'slug': article.slug }) }}" class="btn btn-info btn-sm">Lire la suite</a></div>
             </div>
