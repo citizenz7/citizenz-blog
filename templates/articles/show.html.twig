@@ -2,7 +2,7 @@
 
 {% form_theme commentForm 'bootstrap_4_layout.html.twig' %}
 
-{% block title %}Articles{% endblock %}
+{% block title %}{{ site_url }} - {{ article.titre }}{% endblock %}
 
 {% block body %}
 <div class="row pb-5">

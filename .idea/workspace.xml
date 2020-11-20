@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="412b0a63-7464-455a-8691-657044b6825b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AproposController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AproposController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/citizenz-blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/citizenz-blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,6 +144,8 @@
       <path value="$PROJECT_DIR$/vendor/gedmo/doctrine-extensions" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/symfonycasts/reset-password-bundle" />
+      <path value="$PROJECT_DIR$/vendor/gregwar/captcha" />
+      <path value="$PROJECT_DIR$/vendor/gregwar/captcha-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jJHXqRXojFLu7KHtQRwe8ZdhWK" />
@@ -171,6 +173,7 @@
       <workItem from="1603603249931" duration="1076000" />
       <workItem from="1603645197536" duration="288000" />
       <workItem from="1603945898312" duration="271000" />
+      <workItem from="1605813510569" duration="109000" />
     </task>
     <servers />
   </component>

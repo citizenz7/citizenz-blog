@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{{ site_url}}: blog Geek & Libre{% endblock %}</title>
+    <title>{% block title %}{{ site_url}}: {{ site_slogan }}{% endblock %}</title>
 
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/icons/apple-icon-57x57.png') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('images/icons/apple-icon-60x60.png') }}">
@@ -22,6 +22,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{ asset('images/icons/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" href="{{ asset('images/icons/favicon.ico') }}" type="image/x-icon">
 
     {% block stylesheets %}{% endblock %}
     <link rel="stylesheet" href="{{ asset('css/bootswatch-journal.min.css') }}">
