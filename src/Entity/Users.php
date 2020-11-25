@@ -25,7 +25,7 @@ class Users implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(type="string", length=20, unique=true)
      */
     private $username;
 
@@ -47,7 +47,7 @@ class Users implements UserInterface
     private $confirmPassword;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=55, unique=true)
      * @Assert\Email()
      */
     private $email;

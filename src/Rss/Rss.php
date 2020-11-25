@@ -23,7 +23,7 @@ xml;
             $xml .= <<<xml
 <item>
 <title>{$titre}</title>
-<link>https://127.0.0.1:8000/articles/{$slug}</link>
+<link>https://www.citizenz.info/articles/{$slug}</link>
 <description>{$slug}</description>
 <pubDate>$pubDate</pubDate>
 </item>
