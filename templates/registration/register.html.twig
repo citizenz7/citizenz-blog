@@ -6,7 +6,7 @@
 
 {% block body %}
 <div class="row justify-content-md-center py-5">
-    <div class="col-sm-4 card px-5 py-4">
+    <div class="col-sm-5 card px-5 py-4">
 
         {% for flashError in app.flashes('verify_email_error') %}
             <div class="alert alert-danger" role="alert">{{ flashError }}</div>
@@ -16,14 +16,17 @@
 
         <div class="form-group mt-4">
             {{ form_start(registrationForm) }}
-                {{ form_row(registrationForm.username, {'attr': {'placeholder': 'Entrez un pseudo'}}) }}
-                {{ form_row(registrationForm.email, {'attr': {'placeholder': 'Entrez une adresse e-mail'}}) }}
-                {{ form_row(registrationForm.password, {'attr': {'placeholder': 'Entrez un mot de passe'}}) }}
-                {{ form_row(registrationForm.confirmPassword, {'attr': {'placeholder': 'Répétez le mot de passe'}}) }}
+                {{ form_row(registrationForm.username, {'attr': {'placeholder': 'Entrez un pseudo', 'class': 'form-control'}}) }}
+                {{ form_row(registrationForm.email, {'attr': {'placeholder': 'Entrez une adresse e-mail', 'class': 'form-control'}}) }}
+                {{ form_row(registrationForm.password, {'attr': {'placeholder': 'Entrez un mot de passe', 'class': 'form-control'}}) }}
+                {{ form_row(registrationForm.confirmPassword, {'attr': {'placeholder': 'Répétez le mot de passe', 'class': 'form-control'}}) }}
 
                 <div class="text-center">
+                    {{ form_row(registrationForm.captcha, {'label' : 'Veillez recopier le captcha', 'attr': {'class': 'form-control'}}) }}
+
                     <a href="{{ path('cgu') }}"><i class="fas fa-angle-right"></i> Accepter les CGU <i
-                            class="fas fa-angle-left"></i></a><br>
+                            class="fas fa-angle-left"></i></a>
+                    <br>
                     {{ form_row(registrationForm.agreeTerms, {'label': 'Cochez la case'}) }}
 
                     <button type="submit" class="btn btn-success">S'enregister</button>
