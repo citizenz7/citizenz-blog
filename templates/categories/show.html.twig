@@ -24,7 +24,7 @@
 
         <hr>
         Nombre d'articles de la catégorie : {{ categorie.articles | length }}
-        {% for a in categorie.articles %}
+        {% for a in categorie.articles|reverse %}
             {% if a.isInactive == 0 %}
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
