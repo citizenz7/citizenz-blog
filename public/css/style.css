@@ -43,7 +43,7 @@ footer #footer-resources i {
     font-size: 28.5px;
 }
 
-.text-meta0{
+.text-meta0 {
     font-size: 0.65rem;
 }
 
@@ -192,4 +192,19 @@ footer #footer-resources i {
 
 .light2 {
     background-color: #f8f9fa;
+}
+
+.video-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
