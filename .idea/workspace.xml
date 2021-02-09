@@ -20,8 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="412b0a63-7464-455a-8691-657044b6825b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/citizenz-blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/citizenz-blog.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rss/Rss.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rss/Rss.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/twig/sidebarExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/twig/sidebarExtension.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
@@ -155,6 +157,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -174,6 +177,7 @@
       <workItem from="1603645197536" duration="288000" />
       <workItem from="1603945898312" duration="271000" />
       <workItem from="1605813510569" duration="109000" />
+      <workItem from="1612845313590" duration="822000" />
     </task>
     <servers />
   </component>
@@ -192,22 +196,8 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="2600" y="373" width="551" height="340" key="#Notifications" timestamp="1603515376024">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2600" y="373" width="551" height="340" key="#Notifications/0.0.1920.1049/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603515376024" />
-    <state x="2688" y="261" width="376" height="563" key="#com.intellij.ide.util.MemberChooser" timestamp="1603946096258">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2688" y="261" width="376" height="563" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1049/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603946096258" />
-    <state x="2463" y="280" width="826" height="526" key="IDE.errors.dialog" timestamp="1603516687726">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2463" y="280" width="826" height="526" key="IDE.errors.dialog/0.0.1920.1049/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603516687726" />
-    <state x="2346" y="244" width="1022" height="731" key="SettingsEditor" timestamp="1603603452769">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2346" y="244" width="1022" height="731" key="SettingsEditor/0.0.1920.1049/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603603452769" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -8,6 +8,9 @@ use App\Repository\CommentairesRepository;
 use App\Repository\TagsRepository;
 use App\Repository\UsersRepository;
 use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -40,7 +43,7 @@ class sidebarExtension extends AbstractExtension
 
 
     /**
-     * @var Environnement
+     * @var Environment
      */
     private $twig;
 
@@ -90,7 +93,12 @@ class sidebarExtension extends AbstractExtension
         //     'vues' => $vues
         // ]);
 
-        return $this->twig->render('home/sidebar.html.twig', 
-            compact('articles', 'articlesAll', 'commentaires', 'commentairesAll', 'categories', 'users', 'vues', 'tags'));
+        try {
+            return $this->twig->render('home/sidebar.html.twig',
+                compact('articles', 'articlesAll', 'commentaires', 'commentairesAll', 'categories', 'users', 'vues', 'tags'));
+        } catch (LoaderError $e) {
+        } catch (RuntimeError $e) {
+        } catch (SyntaxError $e) {
+        }
     }
 }

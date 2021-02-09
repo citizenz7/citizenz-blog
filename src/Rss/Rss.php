@@ -4,7 +4,11 @@ namespace App\Rss;
 
 class Rss
 {
-    public static function generate($articles)
+    /**
+     * @param $articles
+     * @return string
+     */
+    public static function generate($articles): string
     {
         $xml = <<<xml
 <?xml version='1.0' encoding='UTF-8'?>
