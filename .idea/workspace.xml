@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="412b0a63-7464-455a-8691-657044b6825b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rss/Rss.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rss/Rss.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/twig/sidebarExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/twig/sidebarExtension.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +33,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Rss/Rss.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
@@ -177,7 +177,7 @@
       <workItem from="1603645197536" duration="288000" />
       <workItem from="1603945898312" duration="271000" />
       <workItem from="1605813510569" duration="109000" />
-      <workItem from="1612845313590" duration="822000" />
+      <workItem from="1612845313590" duration="1907000" />
     </task>
     <servers />
   </component>
